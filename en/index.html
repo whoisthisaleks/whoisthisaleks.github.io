@@ -50,7 +50,11 @@
       background: var(--color-page-bg);
       opacity: 1;
       visibility: visible;
-      transition: opacity 360ms ease, visibility 360ms ease;
+      transform: scale(1);
+      transition:
+        opacity 420ms ease,
+        visibility 420ms ease,
+        transform 520ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .site-loader__track {
@@ -69,13 +73,14 @@
       border-radius: inherit;
       transform: scaleX(0);
       transform-origin: left center;
-      animation: loader-fill 1400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: loader-fill 1550ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
 
     body.is-loaded .site-loader {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+      transform: scale(1.008);
     }
 
     @keyframes loader-fill {
@@ -146,7 +151,7 @@
       color: inherit;
       text-decoration: underline;
       text-underline-offset: 3px;
-      transition: color 0.2s ease;
+      transition: color 260ms ease;
     }
 
     .hero__bio a:hover {
@@ -203,7 +208,7 @@
       text-decoration: none;
       font: 500 16px/1.25 var(--font-main);
       cursor: pointer;
-      transition: none;
+      transition: color 280ms ease;
     }
 
     .hero__action::before {
@@ -212,7 +217,7 @@
       inset: 0;
       border-radius: inherit;
       background: var(--color-card-bg);
-      transition: background-color 180ms ease;
+      transition: background-color 280ms ease;
     }
 
     .hero__action:hover {
@@ -253,7 +258,7 @@
       color: inherit;
       text-decoration: underline;
       text-underline-offset: 3px;
-      transition: color 0.2s ease;
+      transition: color 260ms ease;
     }
 
     .projects__cta a:hover {
@@ -301,7 +306,7 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: background-color 180ms ease, color 180ms ease;
+      transition: background-color 280ms ease, color 280ms ease;
     }
 
     .language-toggle:hover {
@@ -331,16 +336,16 @@
       position: relative;
       transform: scale(1);
       transform-origin: center center;
-      transition: transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
 
     .shot-card:hover {
-      transform: scale(1.01);
+      transform: scale(1.008);
     }
 
     .shot-card:not(:hover) {
-      transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .shot-card__media {
@@ -350,7 +355,7 @@
       align-items: center;
       justify-content: center;
       transform: translateY(8px);
-      transition: transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
 
@@ -359,7 +364,7 @@
     }
 
     .shot-card:not(:hover) .shot-card__media {
-      transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .shot-card__image {
@@ -400,8 +405,8 @@
       opacity: 0;
       transform: translateY(12px);
       transition:
-        transform 720ms cubic-bezier(0.16, 1, 0.3, 1) 180ms,
-        opacity 560ms ease 260ms;
+        transform 820ms cubic-bezier(0.16, 1, 0.3, 1) 220ms,
+        opacity 620ms ease 300ms;
     }
 
     .shot-card:hover .shot-card__title {
@@ -411,8 +416,8 @@
 
     .shot-card:not(:hover) .shot-card__title {
       transition:
-        transform 620ms cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 350ms ease;
+        transform 700ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 380ms ease;
     }
 
     /* ── Card ─────────────────────────────────────── */
@@ -427,7 +432,7 @@
       position: relative;
       color: inherit;
       text-decoration: none;
-      transition: transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     a.card {
@@ -435,11 +440,11 @@
     }
 
     .card:hover {
-      transform: scale(1.01);
+      transform: scale(1.008);
     }
 
     .card:not(:hover) {
-      transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     /* Card header row: logo + year */
@@ -518,7 +523,7 @@
       border-radius: 16px;
       overflow: hidden;
       transform: translateY(0);
-      transition: transform 720ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
 
@@ -535,7 +540,7 @@
     }
 
     .card:not(:hover) .card__image-wrap {
-      transition: transform 620ms cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
 
@@ -549,9 +554,9 @@
       display: flex;
       justify-content: flex-start;
       transition:
-        max-height 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        margin-top 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        opacity 350ms ease;
+        max-height 640ms cubic-bezier(0.16, 1, 0.3, 1),
+        margin-top 640ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 420ms ease;
     }
 
     .card:hover .card__desc {
@@ -559,9 +564,9 @@
       margin-top: 0;
       opacity: 1;
       transition:
-        max-height 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        margin-top 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94),
-        opacity 600ms ease 200ms;
+        max-height 680ms cubic-bezier(0.16, 1, 0.3, 1),
+        margin-top 680ms cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 620ms ease 220ms;
     }
 
     .card__desc p {
@@ -644,7 +649,7 @@
 
       .card {
         border-radius: 18px;
-        padding: 20px;
+        padding: 18px;
         cursor: default;
       }
 
@@ -652,8 +657,13 @@
         transform: none;
       }
 
+      .card:hover .card__image-wrap,
+      .card:not(:hover) .card__image-wrap {
+        transform: none;
+      }
+
       .card__header {
-        margin-bottom: 24px;
+        margin-bottom: 20px;
       }
 
       .card__logo {
@@ -665,9 +675,20 @@
         padding: 8px 11px;
       }
 
+      .card__image-wrap {
+        max-width: none;
+        min-height: clamp(228px, 66vw, 360px);
+        overflow: visible;
+      }
+
       .card__image-wrap,
       .card__image-wrap img {
         border-radius: 12px;
+      }
+
+      .card__image-wrap img {
+        width: min(108%, 520px);
+        max-width: none;
       }
 
       .projects__more {
@@ -684,31 +705,51 @@
       }
 
       .shots-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
         margin-top: 32px;
       }
 
       .shot-card {
-        height: 532px;
+        height: clamp(260px, 78vw, 360px);
         border-radius: 18px;
-        padding: 40px 24px 24px;
+        padding: 28px 12px 52px;
+        transform: none;
       }
 
+      .shot-card:hover {
+        transform: none;
+      }
 
-      .shot-card:hover .shot-card__media {
-        transform: translateY(-8px);
+      .shot-card__media,
+      .shot-card:hover .shot-card__media,
+      .shot-card:not(:hover) .shot-card__media {
+        transform: none;
+        transition: none;
       }
 
       .shot-card__image {
-        height: 460px;
+        height: clamp(176px, 55vw, 268px);
       }
 
-      .shot-card__title {
-        left: 24px;
-        right: 24px;
-        bottom: 32px;
-        font-size: 13px;
+      .shot-card--finconsult .shot-card__media,
+      .shot-card--storecloud-delivery .shot-card__media,
+      .shot-card--foodzy-site .shot-card__media {
+        width: calc(100% + 11px);
+        margin-right: -11px;
+      }
+
+      .shot-card__title,
+      .shot-card:hover .shot-card__title,
+      .shot-card:not(:hover) .shot-card__title {
+        left: 12px;
+        right: 12px;
+        bottom: 18px;
+        font-size: 12px;
+        line-height: 1.35;
+        opacity: 1;
+        transform: none;
+        transition: none;
       }
 
       .card__desc,
@@ -741,7 +782,32 @@
       .card {
         padding: 16px;
       }
+
+      .shots-grid {
+        gap: 10px;
+      }
+
+      .shot-card {
+        height: clamp(238px, 76vw, 320px);
+        padding: 24px 10px 48px;
+      }
+
+      .shot-card__image {
+        height: clamp(158px, 52vw, 232px);
+      }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -997,6 +1063,18 @@
   <style>
     .hero__portrait { opacity: 0; }
     .s { opacity: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+    }
+
   </style>
 
   <script>
