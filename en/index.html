@@ -808,7 +808,221 @@
       }
     }
 
+    html { scroll-behavior: smooth; }
+    .card[href] { cursor: pointer; }
+    .card[href]:focus-visible,
+    .case-study a:focus-visible { outline: 2px solid var(--color-hover); outline-offset: 5px; }
+    body.case-open .content { display: none; }
+    .case-study {
+      display: none;
+      width: 100%;
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: var(--content-pad-top) clamp(24px, 5vw, 48px) 120px;
+      color: var(--color-text);
+    }
+    .case-study.is-active { display: block; animation: case-study-enter 520ms cubic-bezier(0.16, 1, 0.3, 1) both; }
+    @keyframes case-study-enter {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .case-study__back--fixed {
+      position: fixed;
+      top: 28px;
+      left: 26px;
+      right: auto;
+      z-index: 11;
+      width: 32px;
+      height: 32px;
+      padding: 0;
+      border-radius: 50%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      line-height: 0;
+    }
+    body.case-open .case-study__back--fixed { display: flex; }
+    .case-study__back-icon { display: block; width: 7px; height: 10px; }
+    .case-study__bottom .case-study__back {
+      color: var(--color-text);
+      text-decoration: none;
+      transition: color 220ms ease;
+    }
+    .case-study__bottom .case-study__back:hover { color: var(--color-hover); }
+    .case-study__hero { padding: 0 8px; }
+    .case-study__title {
+      max-width: 700px;
+      font-size: 34px;
+      line-height: 1.55;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .case-study__lead {
+      max-width: 600px;
+      margin-top: 40px;
+      color: var(--color-text);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .case-study__facts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px 40px;
+      margin-top: 30px;
+      padding: 0;
+      border: 0;
+    }
+    .case-study__fact-label { display: block; margin-bottom: 6px; color: var(--color-muted); font-size: 12px; }
+    .case-study__fact-value { font-size: 14px; line-height: 1.5; }
+    .case-study__cover {
+      aspect-ratio: 1.62;
+      width: 100%;
+      min-height: 0;
+      margin-top: 62px;
+      border-radius: 40px;
+    }
+    .case-study__section {
+      display: block;
+      margin-top: 62px;
+      padding: 0 8px;
+      border: 0;
+    }
+    .case-study__section h2 {
+      font-size: 34px;
+      line-height: 1.55;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+    .case-study__copy {
+      max-width: 620px;
+      margin-top: 38px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    .case-study__copy p + p { margin-top: 16px; }
+    .case-study__placeholder {
+      display: flex;
+      min-height: 220px;
+      padding: 24px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 24px;
+      background: var(--color-card-bg);
+      color: var(--color-muted);
+      text-align: center;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .case-study__placeholder small { font-size: 12px; overflow-wrap: anywhere; }
+    .case-study__gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .case-study__gallery .case-study__placeholder { min-height: 0; aspect-ratio: 1.55; }
+    .case-study__result { display: inline-block; margin: 8px 0 12px; font-size: clamp(48px, 9vw, 96px); line-height: 1; letter-spacing: -0.04em; }
+    .case-study__bottom { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 64px 10px 0; }
+    .case-study__bottom .case-study__back { min-height: 44px; display: inline-flex; align-items: center; font-size: 14px; }
+    @media (max-width: 900px) {
+      .case-study { padding-bottom: 80px; }
+    }
+    @media (max-width: 640px) {
+      .case-study { padding: var(--content-pad-top) 16px 56px; }
+      .case-study__hero { padding: 0 8px; }
+      .case-study__title, .case-study__section h2 { font-size: 29px; line-height: 1.4; }
+      .case-study__lead { margin-top: 28px; font-size: 15px; }
+      .case-study__facts { gap: 16px 24px; margin-top: 24px; }
+      .case-study__cover { aspect-ratio: 1.15; margin-top: 40px; border-radius: 22px; }
+      .case-study__section { margin-top: 40px; padding: 0 8px; }
+      .case-study__copy { margin-top: 28px; font-size: 15px; }
+      .case-study__gallery { grid-template-columns: 1fr; gap: 12px; }
+      .case-study__gallery .case-study__placeholder { aspect-ratio: 1.25; }
+      .case-study__placeholder { min-height: 200px; border-radius: 18px; }
+      .case-study__bottom { padding: 48px 4px 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .case-study.is-active { animation: none; }
+    }
+
   </style>
+
+  <style>
+    .case-study--alfa .case-study__intro {
+      max-width: 680px;
+      margin-top: 32px;
+    }
+    .case-study--alfa .case-study__intro p + p { margin-top: 20px; }
+    .case-study--alfa .case-study__result-block {
+      margin: 32px 8px 0;
+    }
+    .case-study--alfa .case-study__result-copy {
+      max-width: 680px;
+      margin-top: 0;
+      font-size: 16px;
+      line-height: 1.5;
+      font-weight: 500;
+    }
+    .case-study--alfa .case-study__alfa-image {
+      min-height: 0;
+      aspect-ratio: 1.62;
+      margin-top: 68px;
+      border-radius: 40px;
+    }
+    .case-study--alfa .case-study__alfa-image + .case-study__alfa-image { margin-top: 62px; }
+    .case-study--alfa .case-study__alfa-progress {
+      margin: 62px 0 0;
+      color: #999;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
+    .case-study--alfa .case-study__alfa-cover {
+      margin: 68px 0 0;
+      display: flex;
+      min-height: 0;
+      aspect-ratio: 1.05;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 4.6vw, 48px);
+      overflow: hidden;
+      background: var(--color-card-bg);
+      border-radius: 24px;
+    }
+    .case-study--alfa .case-study__alfa-cover img,
+    .case-study--alfa .case-study__alfa-cover-video {
+      display: block;
+      width: min(40%, 560px);
+      max-width: 100%;
+      height: auto;
+    }
+    @media (max-width: 640px) {
+      .case-study--alfa .case-study__intro { margin-top: 28px; }
+      .case-study--alfa .case-study__result-block { margin-top: 40px; }
+      .case-study--alfa .case-study__result-copy { font-size: 15px; }
+      .case-study--alfa .case-study__alfa-image {
+        aspect-ratio: 1.15;
+        margin-top: 44px;
+        border-radius: 22px;
+      }
+      .case-study--alfa .case-study__alfa-cover {
+        margin: 44px 0 0;
+        aspect-ratio: 1.05;
+        padding: 18px;
+        border-radius: 18px;
+      }
+      .case-study--alfa .case-study__alfa-cover img,
+      .case-study--alfa .case-study__alfa-cover-video { width: min(70%, 560px); }
+      .case-study--alfa .case-study__alfa-image + .case-study__alfa-image { margin-top: 40px; }
+      .case-study--alfa .case-study__alfa-progress { margin-top: 40px; font-size: 14px; }
+    }
+  </style>
+
 </head>
 <body>
 
@@ -862,10 +1076,10 @@
     </section>
 
     <!-- ── Projects ───────────────────────────── -->
-    <section class="projects">
+    <section class="projects" id="projects">
 
       <!-- Card 1: Alfa-Bank -->
-      <div class="card s">
+      <a class="card s" href="#case-alfa-bank" aria-label="Open case study: alfa-bank">
         <div class="card__header">
           <div class="card__logo card__logo--alfa"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="#EF3124"/>
@@ -886,10 +1100,10 @@
             Развиваю торговый эквайринг в&nbsp;Альфе: пересобрал ключевые пользовательские флоу в&nbsp;цифровых каналах и&nbsp;увеличил конверсию мобильного онбординга с&nbsp;0% до&nbsp;17% за&nbsp;первый год
           </p>
         </div>
-      </div>
+      </a>
 
       <!-- Card 2: Megaplan -->
-      <div class="card s">
+      <a class="card s" href="#case-project-2" aria-label="Open case study: project-2">
         <div class="card__header">
           <div class="card__logo card__logo--megaplan"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="#5FCE6C"/>
@@ -910,10 +1124,10 @@
             Работал над масштабным обновлением Мегаплана: пересобрал core UX в&nbsp;сторону гибкой Notion-like модели, повысил эффективность работы с&nbsp;задачами и&nbsp;заложил дизайн-систему
           </p>
         </div>
-      </div>
+      </a>
 
       <!-- Card 3: Foodzy / 2021 -->
-      <div class="card s">
+      <a class="card s" href="#case-project-3" aria-label="Open case study: project-3">
         <div class="card__header">
           <div class="card__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="black"/>
@@ -934,10 +1148,10 @@
             Разработал концепт приложения Foodzy для&nbsp;доставки с&nbsp;нуля&nbsp;— от&nbsp;брендинга до&nbsp;UX, спроектировал ключевые пользовательские сценарии и&nbsp;интерфейсы
           </p>
         </div>
-      </div>
+      </a>
 
       <!-- Card 4: Megaplan / 2021 -->
-      <div class="card s">
+      <a class="card s" href="#case-project-4" aria-label="Open case study: project-4">
         <div class="card__header">
           <div class="card__logo card__logo--plain">
             <img
@@ -960,7 +1174,7 @@
             Cпроектировал цифровую экосистему для&nbsp;сервиса доставки: интерфейсы управления, приложение для&nbsp;курьеров и&nbsp;создал фирменный стиль продукта
           </p>
         </div>
-      </div>
+      </a>
 
       <!-- Card 5: 2017 -->
       <a class="card s" href="https://packagingoftheworld.com/2017/03/the-duck-rabbit-craft-brewery-concept.html" target="_blank" rel="noopener">
@@ -1059,6 +1273,55 @@
 
   </div>
 </div>
+
+<main class="case-studies" aria-live="polite">
+    <a class="language-toggle case-study__back case-study__back--fixed" href="#projects" aria-label="Back to projects" title="Back to projects"><svg class="case-study__back-icon" width="7" height="10" viewBox="0 0 7 10" aria-hidden="true" focusable="false"><path d="M0 5L5 10L6.23926 8.76074L2.47852 5L6.23926 1.23926L5 0L0 5Z" fill="currentColor"/></svg></a>
+    <article class="case-study case-study--alfa" id="case-alfa-bank" data-case-title="Alfa-Bank — Merchant Acquiring">
+      <header class="case-study__hero">
+        <h1 class="case-study__title">Merchant acquiring<br>in the Alfa-Bank mobile app</h1>
+        <div class="case-study__copy case-study__intro">
+          <p>Designed a full mobile merchant acquiring service for entrepreneurs: from product discovery and submitting an application to managing merchant locations, terminals, transactions, and documents.</p>
+        </div>
+      </header>
+      <section class="case-study__result-block">
+        <div class="case-study__result-copy"><p>Within the first year after launch, 17% of new merchant acquiring sign-ups came through the mobile app.</p></div>
+      </section>
+      <!-- CASE IMAGE: assets/cases/alfa-bank/cover.png -->
+      <figure class="case-study__alfa-image case-study__alfa-cover">
+        <video class="case-study__alfa-cover-video" autoplay muted loop playsinline preload="metadata" poster="../assets/cases/alfa-bank/cover.png" aria-label="Alfa-Bank merchant acquiring mobile app">
+          <source src="../assets/cases/alfa-bank/merchant-acquiring.mp4" type="video/mp4" />
+          <source src="../assets/cases/alfa-bank/merchant-acquiring.mov" type="video/quicktime" />
+        </video>
+      </figure>
+      <p class="case-study__alfa-progress">work in progress..</p>
+    </article>
+
+    <article class="case-study" id="case-project-2" data-case-title="Megaplan">
+      <header class="case-study__hero"><h1 class="case-study__title">Megaplan</h1><p class="case-study__lead">[CASE TEXT — ADD CONTENT]</p></header>
+      <!-- CASE IMAGE: add assets/cases/project-2/cover.webp -->
+      <div class="case-study__placeholder case-study__cover">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-2/cover.webp</small></div>
+      <section class="case-study__section"><h2>Overview</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p>
+<div class="case-study__facts"><div><span class="case-study__fact-label">Role</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Company</span><span class="case-study__fact-value">Megaplan</span></div><div><span class="case-study__fact-label">Period</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div></div>
+      </div></section><section class="case-study__section"><h2>Challenge</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>My role</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Process</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Solution</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p><div class="case-study__gallery"><!-- CASE IMAGE: add assets/cases/project-2/screen-01.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-2/screen-01.webp</small></div><!-- CASE IMAGE: add assets/cases/project-2/screen-02.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-2/screen-02.webp</small></div></div></div></section><section class="case-study__section"><h2>Results</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Conclusion</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section>
+      <div class="case-study__bottom"><a class="case-study__back" href="#projects">← All projects</a><a class="case-study__back" href="#case-project-3">Next project →</a></div>
+    </article>
+
+    <article class="case-study" id="case-project-3" data-case-title="Foodzy"><header class="case-study__hero"><h1 class="case-study__title">Foodzy</h1><p class="case-study__lead">[CASE TEXT — ADD CONTENT]</p></header>
+      <!-- CASE IMAGE: add assets/cases/project-3/cover.webp --><div class="case-study__placeholder case-study__cover">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-3/cover.webp</small></div>
+      <section class="case-study__section"><h2>Overview</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p>
+<div class="case-study__facts"><div><span class="case-study__fact-label">Role</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Company</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Period</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div></div>
+      </div></section><section class="case-study__section"><h2>Challenge</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>My role</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Process</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Solution</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p><div class="case-study__gallery"><!-- CASE IMAGE: add assets/cases/project-3/screen-01.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-3/screen-01.webp</small></div><!-- CASE IMAGE: add assets/cases/project-3/screen-02.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-3/screen-02.webp</small></div></div></div></section><section class="case-study__section"><h2>Results</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Conclusion</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section>
+      <div class="case-study__bottom"><a class="case-study__back" href="#projects">← All projects</a><a class="case-study__back" href="#case-project-4">Next project →</a></div>
+    </article>
+
+    <article class="case-study" id="case-project-4" data-case-title="Storecloud Delivery"><header class="case-study__hero"><h1 class="case-study__title">Storecloud Delivery</h1><p class="case-study__lead">[CASE TEXT — ADD CONTENT]</p></header>
+      <!-- CASE IMAGE: add assets/cases/project-4/cover.webp --><div class="case-study__placeholder case-study__cover">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-4/cover.webp</small></div>
+      <section class="case-study__section"><h2>Overview</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p>
+<div class="case-study__facts"><div><span class="case-study__fact-label">Role</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Company</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Period</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div></div>
+      </div></section><section class="case-study__section"><h2>Challenge</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>My role</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Process</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Solution</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p><div class="case-study__gallery"><!-- CASE IMAGE: add assets/cases/project-4/screen-01.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-4/screen-01.webp</small></div><!-- CASE IMAGE: add assets/cases/project-4/screen-02.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-4/screen-02.webp</small></div></div></div></section><section class="case-study__section"><h2>Results</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Conclusion</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section>
+      <div class="case-study__bottom"><a class="case-study__back" href="#projects">← All projects</a><a class="case-study__back" href="#case-alfa-bank">Next project →</a></div>
+    </article>
+  </main>
 
   <style>
     .hero__portrait { opacity: 0; }
@@ -1308,5 +1571,47 @@
   </script>
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cases = [...document.querySelectorAll('.case-study')];
+    const projectList = document.querySelector('.projects');
+    const isEnglishPage = /\/en\/(?:index\.html)?$/.test(window.location.pathname);
+    const homeTitle = isEnglishPage ? 'Alexey — Product Designer' : 'Алексей — Product Designer';
+    let homeScrollY = null;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.card[href^="#case-"]').forEach((card) => {
+      card.addEventListener('click', () => { homeScrollY = window.scrollY; });
+    });
+
+    function renderRoute() {
+      const active = cases.find((item) => `#${item.id}` === window.location.hash) || null;
+      cases.forEach((item) => {
+        const isActive = item === active;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-hidden', String(!isActive));
+      });
+      document.body.classList.toggle('case-open', Boolean(active));
+      cases.forEach((item) => {
+        const video = item.querySelector('.case-study__alfa-cover-video');
+        if (!video) return;
+        if (item === active) video.play().catch(() => {});
+        else video.pause();
+      });
+      if (active) {
+        document.title = `${active.dataset.caseTitle} | ${homeTitle}`;
+        window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+      } else {
+        document.title = homeTitle;
+        if (window.location.hash === '#projects' && projectList) {
+          const targetY = homeScrollY === null ? projectList.getBoundingClientRect().top + window.scrollY : homeScrollY;
+          window.scrollTo({ top: targetY, behavior: reducedMotion ? 'auto' : 'smooth' });
+        }
+      }
+    }
+    window.addEventListener('hashchange', renderRoute);
+    renderRoute();
+  });
+  </script>
 </body>
 </html>
