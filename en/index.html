@@ -901,6 +901,34 @@
       line-height: 1.5;
     }
     .case-study__copy p + p { margin-top: 16px; }
+
+    .case-study--alfa .case-study__alfa-cover {
+      display: flex;
+      width: 100%;
+      min-height: 0;
+      aspect-ratio: 1.05;
+      margin: 68px 0 0;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(24px, 4.6vw, 48px);
+      overflow: hidden;
+      background: var(--color-card-bg);
+      border-radius: 24px;
+    }
+    .case-study--alfa .case-study__alfa-cover-video {
+      display: block;
+      width: min(40%, 560px);
+      max-width: 100%;
+      height: auto;
+    }
+    .case-study__progress {
+      margin: 62px 0 0;
+      color: #999;
+      text-align: center;
+      font-size: 15px;
+      line-height: 1.5;
+      font-weight: 400;
+    }
     .case-study__placeholder {
       display: flex;
       min-height: 220px;
@@ -939,6 +967,14 @@
       .case-study__cover { aspect-ratio: 1.15; margin-top: 40px; border-radius: 22px; }
       .case-study__section { margin-top: 40px; padding: 0 8px; }
       .case-study__copy { margin-top: 28px; font-size: 15px; }
+      .case-study--alfa .case-study__alfa-cover {
+        aspect-ratio: 1.05;
+        margin-top: 44px;
+        padding: 18px;
+        border-radius: 18px;
+      }
+      .case-study--alfa .case-study__alfa-cover-video { width: min(70%, 560px); }
+      .case-study__progress { margin-top: 40px; font-size: 14px; }
       .case-study__gallery { grid-template-columns: 1fr; gap: 12px; }
       .case-study__gallery .case-study__placeholder { aspect-ratio: 1.25; }
       .case-study__placeholder { min-height: 200px; border-radius: 18px; }
@@ -949,78 +985,6 @@
       .case-study.is-active { animation: none; }
     }
 
-  </style>
-
-  <style>
-    .case-study--alfa .case-study__intro {
-      max-width: 680px;
-      margin-top: 32px;
-    }
-    .case-study--alfa .case-study__intro p + p { margin-top: 20px; }
-    .case-study--alfa .case-study__result-block {
-      margin: 32px 8px 0;
-    }
-    .case-study--alfa .case-study__result-copy {
-      max-width: 680px;
-      margin-top: 0;
-      font-size: 16px;
-      line-height: 1.5;
-      font-weight: 500;
-    }
-    .case-study--alfa .case-study__alfa-image {
-      min-height: 0;
-      aspect-ratio: 1.62;
-      margin-top: 68px;
-      border-radius: 40px;
-    }
-    .case-study--alfa .case-study__alfa-image + .case-study__alfa-image { margin-top: 62px; }
-    .case-study--alfa .case-study__alfa-progress {
-      margin: 62px 0 0;
-      color: #999;
-      text-align: center;
-      font-size: 15px;
-      line-height: 1.5;
-      font-weight: 400;
-    }
-    .case-study--alfa .case-study__alfa-cover {
-      margin: 68px 0 0;
-      display: flex;
-      min-height: 0;
-      aspect-ratio: 1.05;
-      align-items: center;
-      justify-content: center;
-      padding: clamp(24px, 4.6vw, 48px);
-      overflow: hidden;
-      background: var(--color-card-bg);
-      border-radius: 24px;
-    }
-    .case-study--alfa .case-study__alfa-cover img,
-    .case-study--alfa .case-study__alfa-cover-video {
-      display: block;
-      width: min(40%, 560px);
-      max-width: 100%;
-      height: auto;
-    }
-    @media (max-width: 640px) {
-      .case-study--alfa .case-study__intro { margin-top: 28px; }
-      .case-study--alfa .case-study__result-block { margin-top: 40px; }
-      .case-study--alfa .case-study__result-copy { font-size: 15px; }
-      .case-study--alfa .case-study__alfa-image {
-        aspect-ratio: 1.15;
-        margin-top: 44px;
-        border-radius: 22px;
-      }
-      .case-study--alfa .case-study__alfa-cover {
-        margin: 44px 0 0;
-        aspect-ratio: 1.05;
-        padding: 18px;
-        border-radius: 18px;
-      }
-      .case-study--alfa .case-study__alfa-cover img,
-      .case-study--alfa .case-study__alfa-cover-video { width: min(70%, 560px); }
-      .case-study--alfa .case-study__alfa-image + .case-study__alfa-image { margin-top: 40px; }
-      .case-study--alfa .case-study__alfa-progress { margin-top: 40px; font-size: 14px; }
-    }
   </style>
 
 </head>
@@ -1277,49 +1241,29 @@
 <main class="case-studies" aria-live="polite">
     <a class="language-toggle case-study__back case-study__back--fixed" href="#projects" aria-label="Back to projects" title="Back to projects"><svg class="case-study__back-icon" width="7" height="10" viewBox="0 0 7 10" aria-hidden="true" focusable="false"><path d="M0 5L5 10L6.23926 8.76074L2.47852 5L6.23926 1.23926L5 0L0 5Z" fill="currentColor"/></svg></a>
     <article class="case-study case-study--alfa" id="case-alfa-bank" data-case-title="Alfa-Bank — Merchant Acquiring">
-      <header class="case-study__hero">
-        <h1 class="case-study__title">Merchant acquiring<br>in the Alfa-Bank mobile app</h1>
-        <div class="case-study__copy case-study__intro">
-          <p>Designed a full mobile merchant acquiring service for entrepreneurs: from product discovery and submitting an application to managing merchant locations, terminals, transactions, and documents.</p>
-        </div>
-      </header>
-      <section class="case-study__result-block">
-        <div class="case-study__result-copy"><p>Within the first year after launch, 17% of new merchant acquiring sign-ups came through the mobile app.</p></div>
-      </section>
-      <!-- CASE IMAGE: assets/cases/alfa-bank/cover.png -->
-      <figure class="case-study__alfa-image case-study__alfa-cover">
+      <header class="case-study__hero"><h1 class="case-study__title">Merchant acquiring<br>in the Alfa-Bank mobile app</h1></header>
+      <figure class="case-study__alfa-cover">
         <video class="case-study__alfa-cover-video" autoplay muted loop playsinline preload="metadata" poster="../assets/cases/alfa-bank/cover.png" aria-label="Alfa-Bank merchant acquiring mobile app">
           <source src="../assets/cases/alfa-bank/merchant-acquiring.mp4" type="video/mp4" />
           <source src="../assets/cases/alfa-bank/merchant-acquiring.mov" type="video/quicktime" />
         </video>
       </figure>
-      <p class="case-study__alfa-progress">work in progress..</p>
+      <p class="case-study__progress">work in progress..</p>
     </article>
 
     <article class="case-study" id="case-project-2" data-case-title="Megaplan">
-      <header class="case-study__hero"><h1 class="case-study__title">Megaplan</h1><p class="case-study__lead">[CASE TEXT — ADD CONTENT]</p></header>
-      <!-- CASE IMAGE: add assets/cases/project-2/cover.webp -->
-      <div class="case-study__placeholder case-study__cover">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-2/cover.webp</small></div>
-      <section class="case-study__section"><h2>Overview</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p>
-<div class="case-study__facts"><div><span class="case-study__fact-label">Role</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Company</span><span class="case-study__fact-value">Megaplan</span></div><div><span class="case-study__fact-label">Period</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div></div>
-      </div></section><section class="case-study__section"><h2>Challenge</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>My role</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Process</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Solution</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p><div class="case-study__gallery"><!-- CASE IMAGE: add assets/cases/project-2/screen-01.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-2/screen-01.webp</small></div><!-- CASE IMAGE: add assets/cases/project-2/screen-02.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-2/screen-02.webp</small></div></div></div></section><section class="case-study__section"><h2>Results</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Conclusion</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section>
-      <div class="case-study__bottom"><a class="case-study__back" href="#projects">← All projects</a><a class="case-study__back" href="#case-project-3">Next project →</a></div>
+      <header class="case-study__hero"><h1 class="case-study__title">Megaplan</h1></header>
+      <p class="case-study__progress">work in progress..</p>
     </article>
 
-    <article class="case-study" id="case-project-3" data-case-title="Foodzy"><header class="case-study__hero"><h1 class="case-study__title">Foodzy</h1><p class="case-study__lead">[CASE TEXT — ADD CONTENT]</p></header>
-      <!-- CASE IMAGE: add assets/cases/project-3/cover.webp --><div class="case-study__placeholder case-study__cover">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-3/cover.webp</small></div>
-      <section class="case-study__section"><h2>Overview</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p>
-<div class="case-study__facts"><div><span class="case-study__fact-label">Role</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Company</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Period</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div></div>
-      </div></section><section class="case-study__section"><h2>Challenge</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>My role</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Process</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Solution</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p><div class="case-study__gallery"><!-- CASE IMAGE: add assets/cases/project-3/screen-01.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-3/screen-01.webp</small></div><!-- CASE IMAGE: add assets/cases/project-3/screen-02.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-3/screen-02.webp</small></div></div></div></section><section class="case-study__section"><h2>Results</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Conclusion</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section>
-      <div class="case-study__bottom"><a class="case-study__back" href="#projects">← All projects</a><a class="case-study__back" href="#case-project-4">Next project →</a></div>
+    <article class="case-study" id="case-project-3" data-case-title="Foodzy">
+      <header class="case-study__hero"><h1 class="case-study__title">Foodzy</h1></header>
+      <p class="case-study__progress">work in progress..</p>
     </article>
 
-    <article class="case-study" id="case-project-4" data-case-title="Storecloud Delivery"><header class="case-study__hero"><h1 class="case-study__title">Storecloud Delivery</h1><p class="case-study__lead">[CASE TEXT — ADD CONTENT]</p></header>
-      <!-- CASE IMAGE: add assets/cases/project-4/cover.webp --><div class="case-study__placeholder case-study__cover">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-4/cover.webp</small></div>
-      <section class="case-study__section"><h2>Overview</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p>
-<div class="case-study__facts"><div><span class="case-study__fact-label">Role</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Company</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div><div><span class="case-study__fact-label">Period</span><span class="case-study__fact-value">[CASE TEXT — ADD CONTENT]</span></div></div>
-      </div></section><section class="case-study__section"><h2>Challenge</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>My role</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Process</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Solution</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p><div class="case-study__gallery"><!-- CASE IMAGE: add assets/cases/project-4/screen-01.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-4/screen-01.webp</small></div><!-- CASE IMAGE: add assets/cases/project-4/screen-02.webp --><div class="case-study__placeholder">[IMAGE — ADD SCREENSHOT]<small>assets/cases/project-4/screen-02.webp</small></div></div></div></section><section class="case-study__section"><h2>Results</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section><section class="case-study__section"><h2>Conclusion</h2><div class="case-study__copy"><p>[CASE TEXT — ADD CONTENT]</p></div></section>
-      <div class="case-study__bottom"><a class="case-study__back" href="#projects">← All projects</a><a class="case-study__back" href="#case-alfa-bank">Next project →</a></div>
+    <article class="case-study" id="case-project-4" data-case-title="Storecloud Delivery">
+      <header class="case-study__hero"><h1 class="case-study__title">Storecloud Delivery</h1></header>
+      <p class="case-study__progress">work in progress..</p>
     </article>
   </main>
 
