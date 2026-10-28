@@ -597,8 +597,8 @@
       }
 
       .hero__portrait {
-        width: 42px;
-        height: 42px;
+        width: 104px;
+        height: 104px;
       }
 
       .projects {
@@ -638,8 +638,8 @@
       }
 
       .hero__portrait {
-        width: 36px;
-        height: 36px;
+        width: 104px;
+        height: 104px;
       }
 
       .hero__exp-list {
@@ -887,23 +887,25 @@
     .case-study__section {
       display: block;
       margin-top: 62px;
-      padding: 0 8px;
+      padding: 0;
       border: 0;
     }
     .case-study__section h2 {
+      margin-left: 8px;
       font-size: 34px;
       line-height: 1.55;
       font-weight: 400;
       letter-spacing: 0;
     }
     .case-study__copy {
-      max-width: 620px;
+      width: min(73%, 688px); /* 8-column span of the 1040px case grid */
+      max-width: none;
       margin: 38px 0 0 8px;
       font-size: 16px;
       line-height: 1.5;
     }
     .case-study__copy p + p { margin-top: 16px; }
-    .case-study__section > .case-study__copy { margin-left: 0; }
+    .case-study__section > .case-study__copy { margin-left: 8px; }
     .case-study__intro p:first-child, .case-study__intro p:first-child strong { font-weight: 500; }
     .case-study__result-copy { margin-top: 24px; font-weight: 500; }
 
@@ -925,6 +927,13 @@
       width: min(40%, 560px);
       max-width: 100%;
       height: auto;
+    }
+    .case-study__alfa-gallery-placeholder {
+      width: 100%;
+      aspect-ratio: 1.05;
+      margin-top: 62px;
+      border-radius: 24px;
+      background: var(--color-card-bg);
     }
     .case-study__status { margin: 32px 0 0 8px; color: #999; font-size: 12px; line-height: 1.5; }
     .case-study__progress {
@@ -971,15 +980,16 @@
       .case-study__lead { margin-top: 28px; font-size: 15px; }
       .case-study__facts { gap: 16px 24px; margin-top: 24px; }
       .case-study__cover { aspect-ratio: 1.15; margin-top: 40px; border-radius: 22px; }
-      .case-study__section { margin-top: 40px; padding: 0 8px; }
-      .case-study__copy { margin-top: 28px; font-size: 15px; }
+      .case-study__section { margin-top: 40px; padding: 0; }
+      .case-study__copy { width: calc(100% - 8px); max-width: none; margin-top: 28px; font-size: 15px; }
       .case-study--alfa .case-study__alfa-cover {
         aspect-ratio: 1.05;
         margin-top: 44px;
         padding: 18px;
         border-radius: 18px;
       }
-      .case-study--alfa .case-study__alfa-cover-video { width: min(70%, 560px); }
+      .case-study--alfa .case-study__alfa-cover-video { width: auto; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; }
+      .case-study__alfa-gallery-placeholder { margin-top: 44px; border-radius: 18px; }
       .case-study__progress { margin-top: 40px; font-size: 14px; }
       .case-study__gallery { grid-template-columns: 1fr; gap: 12px; }
       .case-study__gallery .case-study__placeholder { aspect-ratio: 1.25; }
@@ -1242,7 +1252,7 @@
     <a class="language-toggle case-study__back case-study__back--fixed" href="#projects" aria-label="Back to projects" title="Back to projects"><svg class="case-study__back-icon" width="7" height="10" viewBox="0 0 7 10" aria-hidden="true" focusable="false"><path d="M0 5L5 10L6.23926 8.76074L2.47852 5L6.23926 1.23926L5 0L0 5Z" fill="currentColor"/></svg></a>
     <article class="case-study case-study--alfa" id="case-alfa-bank" data-case-title="Alfa-Bank — Merchant Acquiring">
       <header class="case-study__hero"><h1 class="case-study__title">Торговый эквайринг<br>в&nbsp;мобильном Альфа-банке</h1></header>
-      <div class="case-study__copy case-study__intro"><p><strong>От&nbsp;подключения до&nbsp;управления торговыми точками — в&nbsp;одном сервисе</strong></p><p>С&nbsp;командой я&nbsp;спроектировал мобильный опыт торгового эквайринга для&nbsp;предпринимателей: от&nbsp;знакомства с&nbsp;продуктом и&nbsp;подачи заявки до&nbsp;управления торговыми точками, оборудованием, документами и&nbsp;операциями.</p><p>Раньше подключение и&nbsp;управление эквайрингом были доступны только в&nbsp;десктопной версии интернет-банка. Мы&nbsp;перенесли ключевые сценарии в&nbsp;мобильное приложение и&nbsp;переработали заявку, чтобы клиентам было проще разобраться в&nbsp;условиях и&nbsp;заполнить необходимые для&nbsp;подключения данные.</p></div>
+      <div class="case-study__copy case-study__intro"><p><strong>От&nbsp;подключения до&nbsp;управления торговыми точками — в&nbsp;одном сервисе</strong></p><p>С&nbsp;командой я&nbsp;спроектировал мобильный опыт торгового эквайринга для&nbsp;предпринимателей: от&nbsp;знакомства с&nbsp;продуктом и&nbsp;подачи заявки до&nbsp;управления торговыми точками, оборудованием, документами и&nbsp;операциями.</p><p>Раньше подключение и&nbsp;управление эквайрингом были доступны только в&nbsp;десктопной версии интернет-банка. Мы&nbsp;перенесли ключевые сценарии в&nbsp;мобильное приложение и&nbsp;переработали заявку, чтобы клиентам было проще разобраться в&nbsp;условиях и&nbsp;заполнить необходимые для&nbsp;подключения данные.</p><p>Торговому эквайрингу нужен был&nbsp;мобильный канал, в&nbsp;котором предприниматель мог&nbsp;бы&nbsp;не&nbsp;только узнать об&nbsp;услуге и&nbsp;оставить заявку, но&nbsp;и&nbsp;управлять подключённым продуктом.</p></div>
       <div class="case-study__copy case-study__result-copy"><p>17% новых подключений торгового эквайринга стали проходить через мобильное приложение в&nbsp;течение первого года после запуска</p></div>
       <div class="case-study__copy case-study__team-copy"><p>Я&nbsp;отвечаю за&nbsp;интерфейсы сервиса целиком — от&nbsp;лендинга и&nbsp;заявки до&nbsp;разделов мобильного кабинета. Работаю вместе с&nbsp;продакт-менеджером, аналитиком, разработчиками и&nbsp;QA.</p><p>Команда: продакт-менеджер, аналитик, дизайнер, 2 iOS-разработчика, 2 Android-разработчика, 2 backend-разработчика, 2 QA</p></div>
       <figure class="case-study__alfa-cover">
@@ -1251,7 +1261,7 @@
           <source src="assets/cases/alfa-bank/merchant-acquiring.mov" type="video/quicktime" />
         </video>
       </figure>
-      <section class="case-study__section"><h2>Задача</h2><div class="case-study__copy"><p>Перенести сложный банковский сценарий в&nbsp;мобильное приложение.</p><p>Торговому эквайрингу нужен был&nbsp;мобильный канал, в&nbsp;котором предприниматель мог&nbsp;бы&nbsp;не&nbsp;только узнать об&nbsp;услуге и&nbsp;оставить заявку, но&nbsp;и&nbsp;управлять подключённым продуктом.</p><p>Задача охватывала весь путь: лендинг, заявку и&nbsp;многошаговую анкету, настройку торговых точек и&nbsp;оборудования, а&nbsp;также разделы мобильного кабинета.</p><p>Важной частью работы стала переработка заявки: нужно было разделить её&nbsp;на&nbsp;понятные этапы, снизить ощущение сложности, реорганизовать поля форм и&nbsp;переосмыслить структуру экранов.</p></div></section>
+      <section class="case-study__section"><h2>Заявка на&nbsp;подключение</h2><div class="case-study__copy"><p>Важной частью работы стала переработка заявки: нужно было разделить её&nbsp;на&nbsp;понятные этапы, снизить ощущение сложности, реорганизовать поля форм и&nbsp;переосмыслить структуру экранов.</p></div></section><section class="case-study__section"><h2>Исследование</h2><div class="case-study__copy"><p>Мы&nbsp;провели UX-исследование заявки, чтобы проверить, насколько понятен сценарий и&nbsp;достаточно ли&nbsp;информации, чтобы пройти заявку самостоятельно.</p><p>В&nbsp;исследовании участвовали восемь предпринимателей: четыре клиента Альфа-Банка, которые хотели впервые подключить эквайринг, и&nbsp;четыре клиента других банков, рассматривавших переход на&nbsp;эквайринг Альфа-Банка.</p><p>Те, кто&nbsp;уже&nbsp;работал с&nbsp;торговым эквайрингом, заполняли заявку быстрее и&nbsp;увереннее. Новичкам было сложнее: выбор тарифа и&nbsp;оборудования перегружал сценарий, а&nbsp;отдельные поля и&nbsp;описания не&nbsp;объясняли, какие данные нужны и&nbsp;зачем.</p><p>Это&nbsp;указало на&nbsp;два&nbsp;разных запроса внутри одного сценария: опытному клиенту важно быстро пройти заявку, а&nbsp;новичку — разобраться в&nbsp;условиях и&nbsp;получить поддержку. Поэтому заявку нужно было сделать понятной, а&nbsp;сложный выбор тарифа и&nbsp;оборудования — гибче: дать возможность пройти его&nbsp;самостоятельно, обратиться за&nbsp;помощью или&nbsp;вернуться к&nbsp;нему позже.</p></div></section><div class="case-study__alfa-gallery-placeholder" aria-hidden="true"></div><section class="case-study__section"><h2>Решения</h2></section>
       <p class="case-study__status">case in&nbsp;progress..</p>
     </article>
 
