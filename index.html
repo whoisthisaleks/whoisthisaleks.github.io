@@ -24,12 +24,15 @@
 
       --font-main: 'Golos Text', sans-serif;
 
-      --motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
-      --motion-quick: 180ms;
-      --motion-ui: 240ms;
-      --motion-enter: 420ms;
-      --motion-exit: 300ms;
-      --motion-content: 520ms;
+      --motion-duration-instant: 120ms;
+      --motion-duration-fast: 180ms;
+      --motion-duration-normal: 260ms;
+      --motion-duration-medium: 380ms;
+      --motion-duration-slow: 560ms;
+      --motion-duration-cinematic: 760ms;
+      --motion-ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+      --motion-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
 
       --page-width:    1600px;
       --content-width: 1040px;
@@ -57,11 +60,9 @@
       background: var(--color-page-bg);
       opacity: 1;
       visibility: visible;
-      transform: scale(1);
       transition:
-        opacity 360ms var(--motion-ease),
-        visibility 360ms var(--motion-ease),
-        transform var(--motion-enter) var(--motion-ease);
+        opacity var(--motion-duration-normal) var(--motion-ease-out),
+        visibility var(--motion-duration-normal) var(--motion-ease-out);
     }
 
     .site-loader__track {
@@ -80,14 +81,13 @@
       border-radius: inherit;
       transform: scaleX(0);
       transform-origin: left center;
-      animation: loader-fill 1550ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation: loader-fill var(--motion-duration-medium) var(--motion-ease-out) forwards;
     }
 
     body.is-loaded .site-loader {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
-      transform: scale(1.008);
     }
 
     @keyframes loader-fill {
@@ -158,7 +158,7 @@
       color: inherit;
       text-decoration: underline;
       text-underline-offset: 3px;
-      transition: color var(--motion-ui) var(--motion-ease);
+      transition: color var(--motion-duration-normal) var(--motion-ease-standard), transform var(--motion-duration-instant) var(--motion-ease-standard);
     }
 
     .hero__bio a:hover {
@@ -215,7 +215,7 @@
       text-decoration: none;
       font: 500 16px/1.25 var(--font-main);
       cursor: pointer;
-      transition: color var(--motion-ui) var(--motion-ease);
+      transition: color var(--motion-duration-normal) var(--motion-ease-standard), transform var(--motion-duration-instant) var(--motion-ease-standard);
     }
 
     .hero__action::before {
@@ -224,7 +224,7 @@
       inset: 0;
       border-radius: inherit;
       background: var(--color-card-bg);
-      transition: background-color var(--motion-ui) var(--motion-ease);
+      transition: background-color var(--motion-duration-normal) var(--motion-ease-standard);
     }
 
     .hero__action:hover {
@@ -265,7 +265,7 @@
       color: inherit;
       text-decoration: underline;
       text-underline-offset: 3px;
-      transition: color var(--motion-ui) var(--motion-ease);
+      transition: color var(--motion-duration-normal) var(--motion-ease-standard);
     }
 
     .projects__cta a:hover {
@@ -313,13 +313,17 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       cursor: pointer;
-      transition: background-color var(--motion-ui) var(--motion-ease), color var(--motion-ui) var(--motion-ease);
+      transition: background-color var(--motion-duration-normal) var(--motion-ease-standard), color var(--motion-duration-normal) var(--motion-ease-standard), transform var(--motion-duration-instant) var(--motion-ease-standard);
     }
 
     .language-toggle:hover {
       background: var(--color-hover-bg);
       color: var(--color-hover);
     }
+
+    .language-toggle:active,
+    .hero__action:active,
+    .case-study__back--fixed:active { transform: scale(0.98); }
 
     .shots-grid {
       display: grid;
@@ -343,15 +347,15 @@
       position: relative;
       transform: scale(1);
       transform-origin: center center;
-      transition: transform var(--motion-enter) var(--motion-ease);
+      transition: transform var(--motion-duration-medium) var(--motion-ease-out);
     }
 
     .shot-card:hover {
-      transform: scale(1.008);
+      transform: scale(1.006);
     }
 
     .shot-card:not(:hover) {
-      transition: transform var(--motion-exit) var(--motion-ease);
+      transition: transform var(--motion-duration-fast) var(--motion-ease-out);
     }
 
     .shot-card__media {
@@ -360,16 +364,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      transform: translateY(8px);
-      transition: transform var(--motion-enter) var(--motion-ease);
+      transform: translateY(4px);
+      transition: transform var(--motion-duration-medium) var(--motion-ease-out);
     }
 
     .shot-card:hover .shot-card__media {
-      transform: translateY(-10px);
+      transform: translateY(0);
     }
 
     .shot-card:not(:hover) .shot-card__media {
-      transition: transform var(--motion-exit) var(--motion-ease);
+      transition: transform var(--motion-duration-fast) var(--motion-ease-out);
     }
 
     .shot-card__image {
@@ -408,10 +412,10 @@
       text-align: center;
       color: var(--color-muted);
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(6px);
       transition:
-        transform var(--motion-enter) var(--motion-ease) 60ms,
-        opacity 280ms var(--motion-ease) 60ms;
+        transform var(--motion-duration-medium) var(--motion-ease-out) 40ms,
+        opacity var(--motion-duration-normal) var(--motion-ease-out) 40ms;
     }
 
     .shot-card:hover .shot-card__title {
@@ -421,8 +425,8 @@
 
     .shot-card:not(:hover) .shot-card__title {
       transition:
-        transform var(--motion-exit) var(--motion-ease),
-        opacity var(--motion-quick) var(--motion-ease);
+        transform var(--motion-duration-fast) var(--motion-ease-out),
+        opacity var(--motion-duration-fast) var(--motion-ease-out);
     }
 
     /* ── Card ─────────────────────────────────────── */
@@ -437,7 +441,7 @@
       position: relative;
       color: inherit;
       text-decoration: none;
-      transition: transform var(--motion-enter) var(--motion-ease);
+      transition: transform var(--motion-duration-medium) var(--motion-ease-out);
     }
 
     a.card {
@@ -445,11 +449,11 @@
     }
 
     .card:hover {
-      transform: scale(1.008);
+      transform: scale(1.006);
     }
 
     .card:not(:hover) {
-      transition: transform var(--motion-exit) var(--motion-ease);
+      transition: transform var(--motion-duration-fast) var(--motion-ease-out);
     }
 
     /* Card header row: logo + year */
@@ -528,7 +532,7 @@
       border-radius: 16px;
       overflow: hidden;
       transform: translateY(0);
-      transition: transform var(--motion-enter) var(--motion-ease);
+      transition: transform var(--motion-duration-medium) var(--motion-ease-out);
     }
 
     .card__image-wrap img {
@@ -540,11 +544,11 @@
     }
 
     .card:hover .card__image-wrap {
-      transform: translateY(-8px);
+      transform: translateY(-3px);
     }
 
     .card:not(:hover) .card__image-wrap {
-      transition: transform var(--motion-exit) var(--motion-ease);
+      transition: transform var(--motion-duration-fast) var(--motion-ease-out);
     }
 
 
@@ -558,9 +562,8 @@
       display: flex;
       justify-content: flex-start;
       transition:
-        max-height var(--motion-exit) var(--motion-ease),
-        margin-top var(--motion-exit) var(--motion-ease),
-        opacity var(--motion-quick) var(--motion-ease);
+        max-height var(--motion-duration-fast) var(--motion-ease-in-out),
+        opacity var(--motion-duration-fast) var(--motion-ease-out);
     }
 
     .card:hover .card__desc {
@@ -568,9 +571,8 @@
       margin-top: 0;
       opacity: 1;
       transition:
-        max-height var(--motion-enter) var(--motion-ease),
-        margin-top var(--motion-enter) var(--motion-ease),
-        opacity var(--motion-ui) var(--motion-ease) 80ms;
+        max-height var(--motion-duration-medium) var(--motion-ease-in-out),
+        opacity var(--motion-duration-normal) var(--motion-ease-out) 40ms;
     }
 
     .card__desc p {
@@ -585,6 +587,8 @@
     @media (max-width: 900px) {
       :root {
         --content-pad-top: 72px;
+        --motion-duration-medium: 320ms;
+        --motion-duration-slow: 420ms;
       }
 
       .content {
@@ -802,18 +806,6 @@
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 1ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-        transition-duration: 1ms !important;
-      }
-    }
-
-
   <style>
     html { scroll-behavior: smooth; }
     .card[href] { cursor: pointer; }
@@ -828,9 +820,9 @@
       padding: var(--content-pad-top) clamp(24px, 5vw, 48px) 120px;
       color: var(--color-text);
     }
-    .case-study.is-active { display: block; animation: case-study-enter var(--motion-content) var(--motion-ease) both; }
+    .case-study.is-active { display: block; animation: case-study-enter var(--motion-duration-slow) var(--motion-ease-out) both; }
     @keyframes case-study-enter {
-      from { opacity: 0; transform: translateY(18px); }
+      from { opacity: 0; transform: translateY(14px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .case-study__back--fixed {
@@ -843,18 +835,23 @@
       height: 32px;
       padding: 0;
       border-radius: 50%;
-      display: none;
+      display: flex;
       align-items: center;
       justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: scale(0.96);
       text-decoration: none;
       line-height: 0;
+      transition: opacity var(--motion-duration-fast) var(--motion-ease-out), transform var(--motion-duration-fast) var(--motion-ease-out), visibility var(--motion-duration-fast) var(--motion-ease-out), background-color var(--motion-duration-normal) var(--motion-ease-standard), color var(--motion-duration-normal) var(--motion-ease-standard);
     }
-    body.case-open .case-study__back--fixed { display: flex; }
+    body.case-open .case-study__back--fixed { opacity: 1; visibility: visible; pointer-events: auto; transform: scale(1); }
     .case-study__back-icon { display: block; width: 7px; height: 10px; }
     .case-study__bottom .case-study__back {
       color: var(--color-text);
       text-decoration: none;
-      transition: color var(--motion-ui) var(--motion-ease);
+      transition: color var(--motion-duration-normal) var(--motion-ease-standard);
     }
     .case-study__bottom .case-study__back:hover { color: var(--color-hover); }
     .case-study__hero { padding: 0 8px; }
@@ -1007,10 +1004,6 @@
       .case-study__placeholder { min-height: 200px; border-radius: 18px; }
       .case-study__bottom { padding: 48px 4px 0; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .case-study.is-active { animation: none; }
-    }
   </style>
 
 </head>
@@ -1069,7 +1062,7 @@
     <section class="projects" id="projects">
 
       <!-- Card 1: Alfa-Bank -->
-      <a class="card s" href="#case-alfa-bank" aria-label="Open case study: alfa-bank">
+      <a class="card" href="#case-alfa-bank" aria-label="Open case study: alfa-bank">
         <div class="card__header">
           <div class="card__logo card__logo--alfa"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="#EF3124"/>
@@ -1093,7 +1086,7 @@
       </a>
 
       <!-- Card 2: Megaplan -->
-      <a class="card s" href="#case-project-2" aria-label="Open case study: project-2">
+      <a class="card" href="#case-project-2" aria-label="Open case study: project-2">
         <div class="card__header">
           <div class="card__logo card__logo--megaplan"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="#5FCE6C"/>
@@ -1117,7 +1110,7 @@
       </a>
 
       <!-- Card 3: Foodzy / 2021 -->
-      <a class="card s" href="#case-project-3" aria-label="Open case study: project-3">
+      <a class="card" href="#case-project-3" aria-label="Open case study: project-3">
         <div class="card__header">
           <div class="card__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="black"/>
@@ -1145,7 +1138,7 @@
       
 
       <!-- Card 4: Megaplan / 2021 -->
-      <a class="card s" href="#case-project-4" aria-label="Open case study: project-4">
+      <a class="card" href="#case-project-4" aria-label="Open case study: project-4">
         <div class="card__header">
           <div class="card__logo card__logo--plain">
             <img
@@ -1171,7 +1164,7 @@
       </a>
 
       <!-- Card 5: 2017 -->
-      <a class="card s" href="https://packagingoftheworld.com/2017/03/the-duck-rabbit-craft-brewery-concept.html" target="_blank" rel="noopener">
+      <a class="card" href="https://packagingoftheworld.com/2017/03/the-duck-rabbit-craft-brewery-concept.html" target="_blank" rel="noopener">
         <div class="card__header">
           <div class="card__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="white"/>
@@ -1373,8 +1366,8 @@
 
 
   <style>
-    .hero__portrait { opacity: 0; }
-    .s { opacity: 0; }
+    .hero__portrait { opacity: 0; transform: scale(0.985); }
+    .s { opacity: 0; transform: translateY(12px); }
 
     @media (prefers-reduced-motion: reduce) {
       *,
@@ -1384,7 +1377,9 @@
         animation-iteration-count: 1 !important;
         scroll-behavior: auto !important;
         transition-duration: 1ms !important;
+        transition-delay: 0ms !important;
       }
+      .case-study.is-active { animation: none; }
     }
 
   </style>
@@ -1393,23 +1388,26 @@
   window.addEventListener('site-loader:done', () => {
     document.fonts.ready.then(() => {
       const portrait = document.querySelector('.hero__portrait');
-      const items    = document.querySelectorAll('.s');
+      const items    = document.querySelectorAll('.hero__greeting.s, .hero__bio.s, .hero__experience.s, .hero__actions.s');
       const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-      portrait.style.transition = 'opacity 520ms cubic-bezier(0.16, 1, 0.3, 1)';
+      portrait.style.transition = 'opacity var(--motion-duration-medium) var(--motion-ease-out), transform var(--motion-duration-medium) var(--motion-ease-out)';
       portrait.style.opacity    = '1';
+      portrait.style.transform  = 'scale(1)';
 
       items.forEach((el, i) => {
         setTimeout(() => {
-          el.style.transition = 'opacity 520ms cubic-bezier(0.16, 1, 0.3, 1)';
+          el.style.transition = 'opacity var(--motion-duration-medium) var(--motion-ease-out), transform var(--motion-duration-medium) var(--motion-ease-out)';
           el.style.opacity    = '1';
+          el.style.transform  = 'translateY(0)';
 
           setTimeout(() => {
             el.classList.remove('s');
             el.style.opacity    = '';
+            el.style.transform  = '';
             el.style.transition = '';
-          }, reducedMotion ? 0 : 560);
-        }, reducedMotion ? 0 : i * 56);
+          }, reducedMotion ? 0 : 400);
+        }, reducedMotion ? 0 : i * 44);
       });
     });
   });
@@ -1418,15 +1416,16 @@
 
   <script>
   (() => {
-    const loaderDuration = 1400;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const loaderDuration = prefersReducedMotion ? 0 : 380;
     const startedAt = performance.now();
 
-    const waitForWindowLoad = new Promise((resolve) => {
-      if (document.readyState === 'complete') {
+    const waitForDomReady = new Promise((resolve) => {
+      if (document.readyState !== 'loading') {
         resolve();
         return;
       }
-      window.addEventListener('load', resolve, { once: true });
+      document.addEventListener('DOMContentLoaded', resolve, { once: true });
     });
 
     const waitForFill = new Promise((resolve) => {
@@ -1434,7 +1433,7 @@
       setTimeout(resolve, Math.max(0, loaderDuration - elapsed));
     });
 
-    Promise.all([waitForWindowLoad, waitForFill]).then(() => {
+    Promise.all([waitForDomReady, waitForFill]).then(() => {
       document.body.classList.add('is-loaded');
       window.dispatchEvent(new Event('site-loader:done'));
     });
