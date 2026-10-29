@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="Токены и повторно используемые компоненты портфолио Алексея." />
+    <title>Визуальная система — Алексей</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/design-system.css" />
+  </head>
+  <body class="ds-demo">
+    <main class="ds-page">
+      <header class="ds-container ds-specimen__header">
+        <h1 class="ds-specimen__title">Визуальная система сайта</h1>
+        <p class="ds-copy ds-specimen__lede">Основные стили и компоненты портфолио. Используйте их как отправную точку для новых экранов и кейсов.</p>
+      </header>
+
+      <section class="ds-section ds-container" aria-labelledby="colors-title">
+        <h2 id="colors-title">Цвет</h2>
+        <div class="ds-specimen__colors">
+          <div class="ds-specimen__color"><div class="ds-color-swatch ds-color-swatch--page" aria-hidden="true"></div><div><p class="ds-token-name">Фон страницы</p><code class="ds-specimen__code">--color-page-bg · #FFFFFF</code></div></div>
+          <div class="ds-specimen__color"><div class="ds-color-swatch ds-color-swatch--text" aria-hidden="true"></div><div><p class="ds-token-name">Основной текст</p><code class="ds-specimen__code">--color-text · #19191A</code></div></div>
+          <div class="ds-specimen__color"><div class="ds-color-swatch ds-color-swatch--card" aria-hidden="true"></div><div><p class="ds-token-name">Поверхность карточки</p><code class="ds-specimen__code">--color-card-bg · #F4F4F4</code></div></div>
+          <div class="ds-specimen__color"><div class="ds-color-swatch ds-color-swatch--muted" aria-hidden="true"></div><div><p class="ds-token-name">Исходный muted из сайта</p><code class="ds-specimen__code">--color-muted · #8B8B8B</code></div></div>
+          <div class="ds-specimen__color"><div class="ds-color-swatch ds-color-swatch--secondary" aria-hidden="true"></div><div><p class="ds-token-name">Текст новых экранов</p><code class="ds-specimen__code">--color-text-secondary · #696969</code></div></div>
+          <div class="ds-specimen__color"><div class="ds-color-swatch ds-color-swatch--tag" aria-hidden="true"></div><div><p class="ds-token-name">Метка</p><code class="ds-specimen__code">--color-tag-bg · #E8E8E8</code></div></div>
+          <div class="ds-specimen__color"><div class="ds-color-swatch ds-color-swatch--accent" aria-hidden="true"></div><div><p class="ds-token-name">Интерактивный акцент</p><code class="ds-specimen__code">--color-hover · #0079FF</code></div></div>
+          <div class="ds-specimen__color"><div class="ds-color-swatch ds-color-swatch--link" aria-hidden="true"></div><div><p class="ds-token-name">Цвет интерактивного текста</p><code class="ds-specimen__code">--color-link · #0068D7</code></div></div>
+        </div>
+      </section>
+
+      <section class="ds-section ds-container" aria-labelledby="type-title">
+        <h2 id="type-title">Типографика</h2>
+        <div class="ds-type-sample"><span class="ds-type-sample__label">Intro · 27–33 / 1.32</span><p class="ds-type-sample__text ds-type-sample__text--intro">Дизайн помогает увидеть главное</p></div>
+        <div class="ds-type-sample"><span class="ds-type-sample__label">Case title · 34 / 1.55</span><p class="ds-type-sample__text ds-type-sample__text--case">Заголовок страницы проекта</p></div>
+        <div class="ds-type-sample"><span class="ds-type-sample__label">Body · 16 / 1.56</span><p class="ds-type-sample__text ds-type-sample__text--body">Основной текст использует Golos Text и спокойный ритм строк.</p></div>
+        <div class="ds-type-sample"><span class="ds-type-sample__label">Secondary · 14 / 1.56</span><p class="ds-type-sample__text ds-type-sample__text--small">Подпись и пояснение к проекту</p></div>
+      </section>
+
+      <section class="ds-section ds-container" aria-labelledby="space-title">
+        <h2 id="space-title">Отступы и скругления</h2>
+        <div class="ds-specimen__space-list" aria-label="Шкала отступов">
+          <div class="ds-specimen__space"><span class="ds-specimen__space-label">space-1</span><span class="ds-specimen__space-bar" style="width: var(--space-1)"></span><span class="ds-specimen__space-value">4 px</span></div>
+          <div class="ds-specimen__space"><span class="ds-specimen__space-label">space-2</span><span class="ds-specimen__space-bar" style="width: var(--space-2)"></span><span class="ds-specimen__space-value">8 px</span></div>
+          <div class="ds-specimen__space"><span class="ds-specimen__space-label">space-3</span><span class="ds-specimen__space-bar" style="width: var(--space-3)"></span><span class="ds-specimen__space-value">12 px</span></div>
+          <div class="ds-specimen__space"><span class="ds-specimen__space-label">space-4</span><span class="ds-specimen__space-bar" style="width: var(--space-4)"></span><span class="ds-specimen__space-value">16 px</span></div>
+          <div class="ds-specimen__space"><span class="ds-specimen__space-label">space-5</span><span class="ds-specimen__space-bar" style="width: var(--space-5)"></span><span class="ds-specimen__space-value">24 px</span></div>
+          <div class="ds-specimen__space"><span class="ds-specimen__space-label">space-6</span><span class="ds-specimen__space-bar" style="width: var(--space-6)"></span><span class="ds-specimen__space-value">32 px</span></div>
+          <div class="ds-specimen__space"><span class="ds-specimen__space-label">space-7</span><span class="ds-specimen__space-bar" style="width: var(--space-7)"></span><span class="ds-specimen__space-value">40 px</span></div>
+          <div class="ds-specimen__space"><span class="ds-specimen__space-label">space-8</span><span class="ds-specimen__space-bar" style="width: var(--space-8)"></span><span class="ds-specimen__space-value">48 px</span></div>
+        </div>
+        <div class="ds-specimen__radii" style="margin-top: var(--space-7)" aria-label="Радиусы">
+          <div class="ds-specimen__radius ds-specimen__radius--media">16 px</div>
+          <div class="ds-specimen__radius ds-specimen__radius--card">24 px</div>
+          <div class="ds-specimen__radius ds-specimen__radius--pill">Pill</div>
+        </div>
+      </section>
+
+      <section class="ds-section ds-container" aria-labelledby="action-title">
+        <h2 id="action-title">Действия и метки</h2>
+        <div class="ds-specimen__actions">
+          <a class="ds-action" href="#project-card">Открыть проект</a>
+          <a class="ds-action" href="#case-layout">Посмотреть кейс</a>
+          <button class="ds-action" type="button" disabled>Недоступно</button>
+        </div>
+        <div class="ds-specimen__actions" style="margin-top: var(--space-4)">
+          <span class="ds-tag">2024 — now</span>
+          <span class="ds-tag">Product design</span>
+        </div>
+        <p class="ds-copy ds-body-small" style="margin-top: var(--space-4)">Наведите курсор или переходите клавишей Tab, чтобы увидеть интерактивное состояние.</p>
+      </section>
+
+      <section class="ds-section ds-container" aria-labelledby="project-card-title">
+        <h2 id="project-card-title">Карточка проекта</h2>
+        <div class="ds-specimen__card-wrap">
+          <a class="ds-card ds-card--interactive" id="project-card" href="#case-layout" aria-label="Открыть пример кейса @Card">
+            <div class="ds-card__header">
+              <div class="ds-card__identity"><span class="ds-card__mark" aria-hidden="true">@C</span><h3 class="ds-card__title">@Card</h3></div>
+              <span class="ds-tag">2021</span>
+            </div>
+            <div class="ds-card__media"><img src="../assets/cases/alfa-bank/alfa_main.png" alt="Превью проекта торгового эквайринга Альфа-Банка" width="2556" height="1704" /></div>
+            <p class="ds-card__description">Пример превью и описания в карточке проекта.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="ds-section ds-container" aria-labelledby="shot-card-title">
+        <h2 id="shot-card-title">Карточка шота</h2>
+        <div class="ds-specimen__shot-wrap">
+          <a class="ds-shot-card" href="#case-layout" aria-label="Открыть пример кейса @Card">
+            <span class="ds-shot-card__media"><img src="../assets/shots/cards_main.png" alt="" aria-hidden="true" width="1200" height="1600" /></span>
+            <span class="ds-shot-card__title">Дизайн карт для @Card</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="ds-section ds-container" aria-labelledby="case-layout-title">
+        <h2 id="case-layout-title">Структура кейса</h2>
+        <article class="ds-specimen__case-preview ds-case" id="case-layout">
+          <h3 class="ds-case__title">Заголовок страницы проекта</h3>
+          <p class="ds-case__lead">Краткое описание задачи и контекста. Держите вводный абзац коротким, чтобы сразу перейти к содержанию проекта.</p>
+          <div class="ds-case__facts">
+            <div class="ds-case__fact"><span class="ds-case__label">Роль</span><span class="ds-case__value">Product design</span></div>
+            <div class="ds-case__fact"><span class="ds-case__label">Период</span><span class="ds-case__value">2021</span></div>
+          </div>
+          <div class="ds-case__cover"><img src="../assets/cases/alfa-bank/cover.png" alt="Обложка кейса торгового эквайринга Альфа-Банка" width="832" height="1762" /></div>
+          <section class="ds-case__section"><h2>Раздел кейса</h2><p>Основной материал выстраивается в одной читаемой колонке и раскрывает решение по шагам.</p></section>
+        </article>
+      </section>
+
+      <footer class="ds-container ds-specimen__footer">Визуальная система портфолио · CSS и Figma</footer>
+    </main>
+  </body>
+</html>

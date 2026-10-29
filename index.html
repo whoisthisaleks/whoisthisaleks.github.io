@@ -48,52 +48,6 @@
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
     }
-
-
-    .site-loader {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--color-page-bg);
-      opacity: 1;
-      visibility: visible;
-      transition:
-        opacity var(--motion-duration-normal) var(--motion-ease-out),
-        visibility var(--motion-duration-normal) var(--motion-ease-out);
-    }
-
-    .site-loader__track {
-      width: 200px;
-      height: 4px;
-      overflow: hidden;
-      background: var(--color-card-bg);
-      border-radius: 9999px;
-    }
-
-    .site-loader__fill {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background: var(--color-hover);
-      border-radius: inherit;
-      transform: scaleX(0);
-      transform-origin: left center;
-      animation: loader-fill var(--motion-duration-medium) var(--motion-ease-out) forwards;
-    }
-
-    body.is-loaded .site-loader {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    @keyframes loader-fill {
-      to { transform: scaleX(1); }
-    }
-
     /* ── Page shell ───────────────────────────────── */
     .page {
       width: 100%;
@@ -227,8 +181,10 @@
       transition: background-color var(--motion-duration-normal) var(--motion-ease-standard);
     }
 
-    .hero__action:hover {
+    .hero__action:hover,
+    .hero__action:focus-visible {
       color: var(--color-hover);
+      transform: translateY(-1px);
     }
 
     .hero__action > span {
@@ -240,7 +196,8 @@
       opacity: 0.32;
     }
 
-    .hero__action:hover::before {
+    .hero__action:hover::before,
+    .hero__action:focus-visible::before {
       background: var(--color-hover-bg);
     }
 
@@ -316,9 +273,17 @@
       transition: background-color var(--motion-duration-normal) var(--motion-ease-standard), color var(--motion-duration-normal) var(--motion-ease-standard), transform var(--motion-duration-instant) var(--motion-ease-standard);
     }
 
-    .language-toggle:hover {
+    .hero__action:focus-visible,
+    .language-toggle:focus-visible {
+      outline: 2px solid var(--color-hover);
+      outline-offset: 4px;
+    }
+
+    .language-toggle:hover,
+    .language-toggle:focus-visible {
       background: var(--color-hover-bg);
       color: var(--color-hover);
+      transform: translateY(-1px);
     }
 
     .language-toggle:active,
@@ -383,6 +348,8 @@
       max-width: 100%;
       max-height: none;
       object-fit: contain;
+      opacity: 0;
+      transition: opacity var(--motion-duration-normal) var(--motion-ease-out);
     }
 
     .shot-card--finconsult .shot-card__media,
@@ -448,11 +415,12 @@
       cursor: pointer;
     }
 
-    .card:hover {
+    .card:hover,
+    .card:focus-visible {
       transform: scale(1.006);
     }
 
-    .card:not(:hover) {
+    .card:not(:hover):not(:focus-visible) {
       transition: transform var(--motion-duration-fast) var(--motion-ease-out);
     }
 
@@ -541,13 +509,19 @@
       height: auto;
       vertical-align: bottom;
       border-radius: 16px;
+      opacity: 0;
+      transition: opacity var(--motion-duration-normal) var(--motion-ease-out);
     }
 
-    .card:hover .card__image-wrap {
+    .card__image-wrap img.is-loaded,
+    .shot-card__image.is-loaded { opacity: 1; }
+
+    .card:hover .card__image-wrap,
+    .card:focus-visible .card__image-wrap {
       transform: translateY(-3px);
     }
 
-    .card:not(:hover) .card__image-wrap {
+    .card:not(:hover):not(:focus-visible) .card__image-wrap {
       transition: transform var(--motion-duration-fast) var(--motion-ease-out);
     }
 
@@ -555,28 +529,29 @@
 
     /* Card description below image */
     .card__desc {
-      overflow: hidden;
-      max-height: 0;
+      display: grid;
+      grid-template-rows: 0fr;
       margin-top: 0;
       opacity: 0;
-      display: flex;
-      justify-content: flex-start;
-      transition:
-        max-height var(--motion-duration-fast) var(--motion-ease-in-out),
-        opacity var(--motion-duration-fast) var(--motion-ease-out);
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: grid-template-rows var(--motion-duration-medium) var(--motion-ease-in-out), margin-top var(--motion-duration-medium) var(--motion-ease-in-out), opacity var(--motion-duration-normal) var(--motion-ease-out), transform var(--motion-duration-normal) var(--motion-ease-out), visibility 0s linear var(--motion-duration-medium);
     }
 
-    .card:hover .card__desc {
-      max-height: 180px;
-      margin-top: 0;
+    .card:hover .card__desc,
+    .card:focus-visible .card__desc {
+      grid-template-rows: 1fr;
+      margin-top: 12px;
       opacity: 1;
-      transition:
-        max-height var(--motion-duration-medium) var(--motion-ease-in-out),
-        opacity var(--motion-duration-normal) var(--motion-ease-out) 40ms;
+      visibility: visible;
+      transform: translateY(0);
+      transition: grid-template-rows var(--motion-duration-medium) var(--motion-ease-out), margin-top var(--motion-duration-medium) var(--motion-ease-out), opacity var(--motion-duration-medium) var(--motion-ease-out) 50ms, transform var(--motion-duration-medium) var(--motion-ease-out) 50ms, visibility 0s;
     }
 
     .card__desc p {
       width: min(50%, 588px);
+      min-height: 0;
+      overflow: hidden;
       font-size: 14px;
       font-weight: 400;
       line-height: 1.56;
@@ -616,6 +591,7 @@
       .card__header {
         margin-bottom: 32px;
       }
+
     }
 
     @media (max-width: 640px) {
@@ -662,11 +638,13 @@
       }
 
 
-      .card:hover {
+      .card:hover,
+      .card:focus-visible {
         transform: none;
       }
 
       .card:hover .card__image-wrap,
+      .card:focus-visible .card__image-wrap,
       .card:not(:hover) .card__image-wrap {
         transform: none;
       }
@@ -762,15 +740,20 @@
       }
 
       .card__desc,
-      .card:hover .card__desc {
-        max-height: none;
+      .card:hover .card__desc,
+      .card:focus-visible .card__desc {
+        display: block;
         margin-top: 18px;
         opacity: 1;
+        visibility: visible;
+        transform: none;
         transition: none;
       }
 
       .card__desc p {
         width: 100%;
+        min-height: 0;
+        overflow: visible;
         font-size: 13px;
         line-height: 1.48;
         text-align: left;
@@ -820,9 +803,9 @@
       padding: var(--content-pad-top) clamp(24px, 5vw, 48px) 120px;
       color: var(--color-text);
     }
-    .case-study.is-active { display: block; animation: case-study-enter var(--motion-duration-slow) var(--motion-ease-out) both; }
+    .case-study.is-active { display: block; animation: case-study-enter var(--motion-duration-normal) var(--motion-ease-out) both; }
     @keyframes case-study-enter {
-      from { opacity: 0; transform: translateY(14px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .case-study__back--fixed {
@@ -1009,12 +992,6 @@
 </head>
 <body>
 
-<div class="site-loader" aria-label="Загрузка сайта" role="status">
-  <div class="site-loader__track" aria-hidden="true">
-    <span class="site-loader__fill"></span>
-  </div>
-</div>
-
 <div class="page" id="main-page">
   <button class="language-toggle" type="button" aria-label="Switch to English">ENG</button>
   <div class="content">
@@ -1030,14 +1007,14 @@
 
       <div class="hero__description">
         <div class="hero__line1">
-          <span class="hero__greeting s">Привет, я&nbsp;Алексей.</span>
+          <span class="hero__greeting">Привет, я&nbsp;Алексей.</span>
         </div>
-        <p class="hero__bio s">
+        <p class="hero__bio">
           18+ лет&nbsp;в&nbsp;дизайне — от&nbsp;визуальных систем и&nbsp;концептов до&nbsp;сложных цифровых продуктов. Сейчас я&nbsp;развиваю торговый эквайринг в&nbsp;<a href="https://alfabank.ru/" target="_blank" rel="noopener">Альфа-Банке</a> и&nbsp;менторю дизайнеров в&nbsp;<a href="https://www.duosapiens.ru/" target="_blank" rel="noopener">DuoSapiens</a>. Раньше работал над&nbsp;масштабным обновлении <a href="https://megaplan.ru/" target="_blank" rel="noopener">Мегаплана</a> и&nbsp;вёл&nbsp;множество проектов как&nbsp;дизайнер и&nbsp;арт-директор.
         </p>
       </div>
 
-      <div class="hero__experience s">
+      <div class="hero__experience">
         <p class="hero__exp-list">
           Senior Product Designer, Альфа-Банк, 2024<span style="display:inline-flex; vertical-align:middle; margin-left:8px; position:relative; top:-2px;"><svg width="37" height="20" viewBox="0 0 37 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 10C0 4.47715 4.47715 0 10 0H27C32.5228 0 37 4.47715 37 10V10C37 15.5228 32.5228 20 27 20H10C4.47715 20 0 15.5228 0 10V10Z" fill="#0079FF"/><path d="M7.729 13V6.7H8.998L11.779 10.75V6.7H13.111V13H11.842L9.061 8.95V13H7.729ZM17.2579 13.108C16.8619 13.108 16.4869 13.048 16.1329 12.928C15.7789 12.808 15.4609 12.622 15.1789 12.37C14.9029 12.112 14.6839 11.779 14.5219 11.371C14.3659 10.963 14.2879 10.471 14.2879 9.895V9.715C14.2879 9.163 14.3659 8.692 14.5219 8.302C14.6839 7.906 14.9029 7.582 15.1789 7.33C15.4609 7.078 15.7789 6.892 16.1329 6.772C16.4869 6.652 16.8619 6.592 17.2579 6.592C17.6539 6.592 18.0289 6.652 18.3829 6.772C18.7369 6.892 19.0519 7.078 19.3279 7.33C19.6099 7.582 19.8289 7.906 19.9849 8.302C20.1469 8.692 20.2279 9.163 20.2279 9.715V9.895C20.2279 10.471 20.1469 10.963 19.9849 11.371C19.8289 11.779 19.6099 12.112 19.3279 12.37C19.0519 12.622 18.7369 12.808 18.3829 12.928C18.0289 13.048 17.6539 13.108 17.2579 13.108ZM17.2579 11.974C17.5339 11.974 17.7889 11.911 18.0229 11.785C18.2629 11.653 18.4549 11.437 18.5989 11.137C18.7489 10.831 18.8239 10.417 18.8239 9.895V9.715C18.8239 9.223 18.7489 8.833 18.5989 8.545C18.4549 8.251 18.2629 8.041 18.0229 7.915C17.7889 7.789 17.5339 7.726 17.2579 7.726C16.9879 7.726 16.7329 7.789 16.4929 7.915C16.2529 8.041 16.0579 8.251 15.9079 8.545C15.7639 8.833 15.6919 9.223 15.6919 9.715V9.895C15.6919 10.417 15.7639 10.831 15.9079 11.137C16.0579 11.437 16.2529 11.653 16.4929 11.785C16.7329 11.911 16.9879 11.974 17.2579 11.974ZM22.3352 13L20.7152 6.7H22.1192L23.1002 11.146L24.3152 6.7H25.5752L26.8172 11.164L27.8792 6.7H29.1752L27.5462 13H26.2052L24.9002 8.5L23.6762 13H22.3352Z" fill="white"/></svg></span><br aria-hidden="true" />
           Senior Product Designer, Мегаплан, 2022 – 2024<br>
@@ -1049,7 +1026,7 @@
         </p>
       </div>
 
-      <div class="hero__actions s" aria-label="Контакты">
+      <div class="hero__actions" aria-label="Контакты">
         <a class="hero__action" href="https://t.me/alekseimogi" target="_blank" rel="noopener"><span>Telegram</span></a>
         <a class="hero__action" href="https://drive.google.com/file/d/18DLEenQGe-qZoIj5vJXymttjr0mLrgbz/view?usp=drive_link" target="_blank" rel="noopener"><span>CV</span></a>
         <a class="hero__action" href="https://www.linkedin.com/in/alexmog/" target="_blank" rel="noopener"><span>LinkedIn</span></a>
@@ -1074,6 +1051,7 @@
         <div class="card__image-wrap">
           <img
             src="assets/cases/alfa-bank/alfa_main.png"
+            width="2556" height="1704" loading="eager" fetchpriority="high"
             alt="Альфа-Банк Эквайринг"
           />
         </div>
@@ -1098,6 +1076,7 @@
         <div class="card__image-wrap">
           <img
             src="assets/cases/alfa-bank/megaplan_main.png"
+            width="2652" height="1710" loading="lazy"
             alt="Мегаплан"
           />
         </div>
@@ -1122,6 +1101,7 @@
         <div class="card__image-wrap">
           <img
             src="assets/cases/foodzy/foodzy_main.png"
+            width="2556" height="1704" loading="lazy"
             alt="Проект 2021"
           />
         </div>
@@ -1152,6 +1132,7 @@
         <div class="card__image-wrap">
           <img
             src="assets/cases/storecloud/storecloud_main.png"
+            width="2652" height="1758" loading="lazy"
             alt="Storecloud"
           />
         </div>
@@ -1192,49 +1173,49 @@
       <div class="shots-grid" aria-label="Дополнительные проекты и шоты">
         <div class="shot-card shot-card--otri">
           <div class="shot-card__media">
-            <img class="shot-card__image" src="assets/shots/otri_main.png" alt="Экран приложения Otri">
+            <img class="shot-card__image" loading="lazy" src="assets/shots/otri_main.png" alt="Экран приложения Otri">
           </div>
           <p class="shot-card__title">Приложение для&nbsp;контроля здоровья Otri</p>
         </div>
         <div class="shot-card shot-card--finconsult">
           <div class="shot-card__media">
-            <img class="shot-card__image" src="assets/shots/finconsult_main.png" alt="Finconsult">
+            <img class="shot-card__image" loading="lazy" src="assets/shots/finconsult_main.png" alt="Finconsult">
           </div>
           <p class="shot-card__title">Финансовый сервис Finconsult</p>
         </div>
         <div class="shot-card shot-card--mara">
           <div class="shot-card__media">
-            <img class="shot-card__image" src="assets/shots/mara_main.png" alt="Упаковка Mara">
+            <img class="shot-card__image" loading="lazy" src="assets/shots/mara_main.png" alt="Упаковка Mara">
           </div>
           <p class="shot-card__title">Брендинг и&nbsp;упаковка для&nbsp;Mara</p>
         </div>
         <div class="shot-card shot-card--card">
           <div class="shot-card__media">
-            <img class="shot-card__image" src="assets/shots/cards_main.png" alt="Лого и стиль для @Card">
+            <img class="shot-card__image" loading="lazy" src="assets/shots/cards_main.png" alt="Лого и стиль для @Card">
           </div>
           <p class="shot-card__title">Лого и&nbsp;стиль для @Card</p>
         </div>
         <div class="shot-card shot-card--payment">
           <div class="shot-card__media">
-            <img class="shot-card__image" src="assets/shots/hearme_main.png" alt="Лого, стиль и app для Hear me">
+            <img class="shot-card__image" loading="lazy" src="assets/shots/hearme_main.png" alt="Лого, стиль и app для Hear me">
           </div>
           <p class="shot-card__title">Лого, стиль и&nbsp;app&nbsp;для&nbsp;Hear me</p>
         </div>
         <div class="shot-card shot-card--foodzy-site">
           <div class="shot-card__media">
-            <img class="shot-card__image" src="assets/shots/foodzy_shot_main.png" alt="Foodzy site">
+            <img class="shot-card__image" loading="lazy" src="assets/shots/foodzy_shot_main.png" alt="Foodzy site">
           </div>
           <p class="shot-card__title">Сайт для&nbsp;Foodzy</p>
         </div>
         <div class="shot-card shot-card--storecloud-delivery">
           <div class="shot-card__media">
-            <img class="shot-card__image" src="assets/shots/storecloud_shot_main.png" alt="Storecloud delivery">
+            <img class="shot-card__image" loading="lazy" src="assets/shots/storecloud_shot_main.png" alt="Storecloud delivery">
           </div>
           <p class="shot-card__title">Управление доставкой для&nbsp;Storecloud</p>
         </div>
         <div class="shot-card shot-card--postcash">
           <div class="shot-card__media">
-            <img class="shot-card__image" src="assets/shots/postcash_main.png" alt="App для Postcash">
+            <img class="shot-card__image" loading="lazy" src="assets/shots/postcash_main.png" alt="App для Postcash">
           </div>
           <p class="shot-card__title">App&nbsp;для&nbsp;Postcash</p>
         </div>
@@ -1366,9 +1347,6 @@
 
 
   <style>
-    .hero__portrait { opacity: 0; transform: scale(0.985); }
-    .s { opacity: 0; transform: translateY(12px); }
-
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -1385,59 +1363,15 @@
   </style>
 
   <script>
-  window.addEventListener('site-loader:done', () => {
-    document.fonts.ready.then(() => {
-      const portrait = document.querySelector('.hero__portrait');
-      const items    = document.querySelectorAll('.hero__greeting.s, .hero__bio.s, .hero__experience.s, .hero__actions.s');
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      portrait.style.transition = 'opacity var(--motion-duration-medium) var(--motion-ease-out), transform var(--motion-duration-medium) var(--motion-ease-out)';
-      portrait.style.opacity    = '1';
-      portrait.style.transform  = 'scale(1)';
-
-      items.forEach((el, i) => {
-        setTimeout(() => {
-          el.style.transition = 'opacity var(--motion-duration-medium) var(--motion-ease-out), transform var(--motion-duration-medium) var(--motion-ease-out)';
-          el.style.opacity    = '1';
-          el.style.transform  = 'translateY(0)';
-
-          setTimeout(() => {
-            el.classList.remove('s');
-            el.style.opacity    = '';
-            el.style.transform  = '';
-            el.style.transition = '';
-          }, reducedMotion ? 0 : 400);
-        }, reducedMotion ? 0 : i * 44);
-      });
-    });
+  document.querySelectorAll('.card__image-wrap img, .shot-card__image').forEach((image) => {
+    const reveal = () => image.classList.add('is-loaded');
+    if (image.complete) {
+      requestAnimationFrame(reveal);
+    } else {
+      image.addEventListener('load', reveal, { once: true });
+      image.addEventListener('error', reveal, { once: true });
+    }
   });
-  </script>
-
-
-  <script>
-  (() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const loaderDuration = prefersReducedMotion ? 0 : 380;
-    const startedAt = performance.now();
-
-    const waitForDomReady = new Promise((resolve) => {
-      if (document.readyState !== 'loading') {
-        resolve();
-        return;
-      }
-      document.addEventListener('DOMContentLoaded', resolve, { once: true });
-    });
-
-    const waitForFill = new Promise((resolve) => {
-      const elapsed = performance.now() - startedAt;
-      setTimeout(resolve, Math.max(0, loaderDuration - elapsed));
-    });
-
-    Promise.all([waitForDomReady, waitForFill]).then(() => {
-      document.body.classList.add('is-loaded');
-      window.dispatchEvent(new Event('site-loader:done'));
-    });
-  })();
   </script>
 
   <script>
