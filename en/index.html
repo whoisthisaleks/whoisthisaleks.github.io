@@ -373,7 +373,7 @@
       right: 24px;
       bottom: 36px;
       margin: 0;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 400;
       line-height: 1.56;
       text-align: center;
@@ -381,8 +381,8 @@
       opacity: 0;
       transform: translateY(6px);
       transition:
-        transform var(--motion-duration-medium) var(--motion-ease-out) 40ms,
-        opacity var(--motion-duration-normal) var(--motion-ease-out) 40ms;
+        transform var(--motion-duration-medium) var(--motion-ease-out) 50ms,
+        opacity var(--motion-duration-medium) var(--motion-ease-out) 50ms;
     }
 
     .shot-card:hover .shot-card__title {
@@ -392,15 +392,15 @@
 
     .shot-card:not(:hover) .shot-card__title {
       transition:
-        transform var(--motion-duration-fast) var(--motion-ease-out),
-        opacity var(--motion-duration-fast) var(--motion-ease-out);
+        transform var(--motion-duration-medium) var(--motion-ease-in-out),
+        opacity var(--motion-duration-medium) var(--motion-ease-in-out);
     }
 
     /* ── Card ─────────────────────────────────────── */
     .card {
       background: var(--color-card-bg);
       border-radius: 24px;
-      overflow: hidden;
+      overflow: visible;
       padding: clamp(24px, 4.6vw, 48px);
       display: flex;
       flex-direction: column;
@@ -418,6 +418,7 @@
     .card:hover,
     .card:focus-visible {
       transform: scale(1.006);
+      z-index: 1;
     }
 
     .card:not(:hover):not(:focus-visible) {
@@ -531,17 +532,18 @@
     .card__desc {
       display: grid;
       grid-template-rows: 0fr;
+      justify-items: center;
       margin-top: 0;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(4px);
-      transition: grid-template-rows var(--motion-duration-medium) var(--motion-ease-in-out), margin-top var(--motion-duration-medium) var(--motion-ease-in-out), opacity var(--motion-duration-normal) var(--motion-ease-out), transform var(--motion-duration-normal) var(--motion-ease-out), visibility 0s linear var(--motion-duration-medium);
+      transform: translateY(6px);
+      transition: grid-template-rows var(--motion-duration-medium) var(--motion-ease-in-out), margin-top var(--motion-duration-medium) var(--motion-ease-in-out), opacity var(--motion-duration-medium) var(--motion-ease-in-out), transform var(--motion-duration-medium) var(--motion-ease-in-out), visibility 0s linear var(--motion-duration-medium);
     }
 
     .card:hover .card__desc,
     .card:focus-visible .card__desc {
       grid-template-rows: 1fr;
-      margin-top: 12px;
+      margin-top: 6px;
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
@@ -551,12 +553,12 @@
     .card__desc p {
       width: min(50%, 588px);
       min-height: 0;
-      overflow: hidden;
-      font-size: 14px;
+      overflow: visible;
+      font-size: 13px;
       font-weight: 400;
       line-height: 1.56;
       color: var(--color-muted);
-      text-align: left;
+      text-align: center;
     }
 
     @media (max-width: 900px) {
@@ -633,6 +635,7 @@
 
       .card {
         border-radius: 18px;
+        overflow: hidden;
         padding: 18px;
         cursor: default;
       }
@@ -732,8 +735,8 @@
         left: 12px;
         right: 12px;
         bottom: 18px;
-        font-size: 12px;
-        line-height: 1.35;
+        font-size: 13px;
+        line-height: 1.48;
         opacity: 1;
         transform: none;
         transition: none;
@@ -743,7 +746,7 @@
       .card:hover .card__desc,
       .card:focus-visible .card__desc {
         display: block;
-        margin-top: 18px;
+        margin-top: 9px;
         opacity: 1;
         visibility: visible;
         transform: none;
@@ -756,7 +759,7 @@
         overflow: visible;
         font-size: 13px;
         line-height: 1.48;
-        text-align: left;
+        text-align: center;
       }
     }
 
