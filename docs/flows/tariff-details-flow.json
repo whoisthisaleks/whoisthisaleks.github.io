@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "1.0",
+  "title": "Тарифы эквайринга — flow экранов",
+  "source": {
+    "fileKey": "xrkgz9yN308ibRkbvVZ6ml",
+    "sectionNodeId": "5:60574",
+    "sectionName": "выбор тарифа new",
+    "url": "https://www.figma.com/design/xrkgz9yN308ibRkbvVZ6ml/Untitled?node-id=5-60574"
+  },
+  "flowType": "screen-map",
+  "prototypeReactionsFound": false,
+  "description": "Карта экранов для сборки обзорного видео. Порядок экранов в sequence — слева направо по макету Figma; он не является подтверждённым интерактивным сценарием.",
+  "video": {
+    "file": "tariff-details-flow.mp4",
+    "durationSeconds": 22.25,
+    "resolution": "1080x1920",
+    "fps": 24,
+    "transition": "cross-dissolve",
+    "transitionSeconds": 0.42,
+    "holdSecondsPerScreen": 2.42
+  },
+  "sequence": [
+    {
+      "id": "tariff-selection",
+      "figmaNodeId": "5:59083",
+      "title": "Выбор тарифа",
+      "role": "start",
+      "annotationGroup": null
+    },
+    {
+      "id": "tariff-available",
+      "figmaNodeId": "5:59259",
+      "title": "Тариф Доступный",
+      "role": "tariff-detail",
+      "annotationGroup": "calculator-comparison"
+    },
+    {
+      "id": "tariff-optimal",
+      "figmaNodeId": "5:59296",
+      "title": "Тариф Оптимальный",
+      "role": "tariff-detail",
+      "annotationGroup": "calculator-comparison"
+    },
+    {
+      "id": "tariff-optimal-no-extra-fee",
+      "figmaNodeId": "5:59334",
+      "title": "Тариф Оптимальный — дополнительная комиссия 0 ₽",
+      "role": "tariff-detail-variant",
+      "annotationGroup": "equipment-fee-example"
+    },
+    {
+      "id": "tariff-basic",
+      "figmaNodeId": "5:59222",
+      "title": "Тариф Базовый",
+      "role": "tariff-detail",
+      "annotationGroup": "tariff-configurations"
+    },
+    {
+      "id": "tariff-advanced",
+      "figmaNodeId": "5:59373",
+      "title": "Тариф Продвинутый",
+      "role": "tariff-detail",
+      "annotationGroup": "tariff-configurations"
+    },
+    {
+      "id": "tariff-starter-plus",
+      "figmaNodeId": "5:59155",
+      "title": "Тариф Стартовый плюс",
+      "role": "tariff-detail",
+      "annotationGroup": "tariff-configurations"
+    },
+    {
+      "id": "tariff-individual",
+      "figmaNodeId": "5:59182",
+      "title": "Индивидуальный тариф",
+      "role": "tariff-detail",
+      "annotationGroup": "individual-tariff"
+    }
+  ],
+  "annotationGroups": [
+    {
+      "id": "calculator-comparison",
+      "figmaNodeId": "5:59255",
+      "label": "Выгодный и не самый выгодный тариф из расчёта калькулятора",
+      "screens": ["tariff-available", "tariff-optimal"]
+    },
+    {
+      "id": "equipment-fee-example",
+      "figmaNodeId": "5:59256",
+      "label": "Если выбрано оборудование, по которому доп. комиссии нет (например, вендинг), но по условиям тарифа она предусмотрена: 1 490 ₽ × 0 = 0 ₽",
+      "screens": ["tariff-optimal-no-extra-fee"]
+    },
+    {
+      "id": "tariff-configurations",
+      "figmaNodeId": "5:59257",
+      "label": "Различные варианты конфигурации карточки тарифа",
+      "screens": ["tariff-basic", "tariff-advanced", "tariff-starter-plus"]
+    },
+    {
+      "id": "individual-tariff",
+      "figmaNodeId": "5:59258",
+      "label": "Индивидуальный тариф",
+      "screens": ["tariff-individual"]
+    }
+  ],
+  "inferredTransitions": [
+    {
+      "from": "tariff-selection",
+      "to": [
+        "tariff-available",
+        "tariff-optimal",
+        "tariff-optimal-no-extra-fee",
+        "tariff-basic",
+        "tariff-advanced",
+        "tariff-starter-plus",
+        "tariff-individual"
+      ],
+      "trigger": "Выбрать тариф и нажать «Продолжить»",
+      "confidence": "inferred-from-screen-layout",
+      "note": "В макете нет Figma prototype reactions, связывающих экран выбора с экранами деталей."
+    }
+  ],
+  "observedConnector": {
+    "figmaNodeId": "5:59372",
+    "fromScreen": "tariff-optimal",
+    "fromNodeId": "5:59329",
+    "toScreen": "tariff-available",
+    "toNodeId": "5:59261",
+    "lineType": "ELBOWED",
+    "endCap": "ARROW_LINES",
+    "meaning": "Направление соединителя отмечено на холсте; назначение перехода не подтверждено prototype interaction."
+  }
+}

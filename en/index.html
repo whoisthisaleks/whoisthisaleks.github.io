@@ -283,7 +283,7 @@
     .language-toggle:focus-visible {
       background: var(--color-hover-bg);
       color: var(--color-hover);
-      transform: translateY(-1px);
+      transform: none;
     }
 
     .language-toggle:active,
@@ -293,7 +293,7 @@
     .shots-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 8px;
       width: 100%;
       margin-top: 32px;
     }
@@ -528,27 +528,16 @@
 
 
 
-    /* Card description below image */
     .card__desc {
-      display: grid;
-      grid-template-rows: 0fr;
+      display: block;
       justify-items: center;
       margin-top: 0;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(6px);
-      transition: grid-template-rows var(--motion-duration-medium) var(--motion-ease-in-out), margin-top var(--motion-duration-medium) var(--motion-ease-in-out), opacity var(--motion-duration-medium) var(--motion-ease-in-out), transform var(--motion-duration-medium) var(--motion-ease-in-out), visibility 0s linear var(--motion-duration-medium);
-    }
-
-    .card:hover .card__desc,
-    .card:focus-visible .card__desc {
-      grid-template-rows: 1fr;
-      margin-top: 6px;
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
-      transition: grid-template-rows var(--motion-duration-medium) var(--motion-ease-out), margin-top var(--motion-duration-medium) var(--motion-ease-out), opacity var(--motion-duration-medium) var(--motion-ease-out) 50ms, transform var(--motion-duration-medium) var(--motion-ease-out) 50ms, visibility 0s;
+      transform: none;
+      transition: none;
     }
+
 
     .card__desc p {
       width: min(50%, 588px);
@@ -696,7 +685,7 @@
 
       .shots-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 12px;
+        gap: 8px;
         margin-top: 32px;
       }
 
@@ -779,7 +768,7 @@
       }
 
       .shots-grid {
-        gap: 10px;
+        gap: 8px;
       }
 
       .shot-card {
@@ -928,6 +917,32 @@
       border-radius: 24px;
       background: var(--color-card-bg);
     }
+    .case-study__alfa-gallery-placeholder--application {
+      display: flex;
+      min-height: 0;
+      aspect-ratio: auto;
+      justify-content: center;
+      padding: clamp(24px, 4.6vw, 48px);
+    }
+    .case-study__alfa-gallery-placeholder--application img {
+      display: block;
+      width: min(40%, 560px);
+      height: auto;
+      border-radius: 18px;
+    }
+    .case-study__alfa-gallery-placeholder--equipment {
+      display: flex;
+      min-height: 0;
+      aspect-ratio: auto;
+      justify-content: center;
+      padding: clamp(24px, 4.6vw, 48px);
+      overflow: hidden;
+    }
+    .case-study__alfa-gallery-placeholder--equipment img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
     .case-study__status { margin: 32px 0 0 8px; color: #999; font-size: 12px; line-height: 1.5; }
     .case-study__progress {
       margin: 62px 0 0;
@@ -983,18 +998,181 @@
       }
       .case-study--alfa .case-study__alfa-cover-video { width: auto; height: 100%; max-width: 100%; max-height: 100%; object-fit: contain; }
       .case-study__alfa-gallery-placeholder { margin-top: 44px; border-radius: 18px; }
+      .case-study__alfa-gallery-placeholder--application { padding: 18px; }
+      .case-study__alfa-gallery-placeholder--application img { width: min(40%, 360px); border-radius: 14px; }
+      .case-study__alfa-gallery-placeholder--equipment { padding: 18px; }
       .case-study__progress { margin-top: 40px; font-size: 14px; }
       .case-study__gallery { grid-template-columns: 1fr; gap: 12px; }
       .case-study__gallery .case-study__placeholder { aspect-ratio: 1.25; }
       .case-study__placeholder { min-height: 200px; border-radius: 18px; }
       .case-study__bottom { padding: 48px 4px 0; }
     }
+
+    /* Figma home page refresh: measured content widths and always-visible captions */
+    :root { --home-content-width: 1152px; }
+    .content { max-width: var(--home-content-width); gap: 0; }
+    .hero { gap: 0; }
+    .hero__description {
+      width: 100%; max-width: none;
+      padding: 40px max(0px, calc((100% - 512px) / 2)) 0;
+    }
+    .hero__line1 { margin: 0; }
+    .hero__greeting, .hero__bio { font-size: 24px; line-height: 1.32; }
+    .hero__bio { max-width: 512px; }
+    .hero__portrait { margin-left: max(0px, calc((100% - 512px) / 2)); }
+    .hero__experience { padding: 40px max(0px, calc((100% - 512px) / 2)) 0; }
+    .hero__exp-list { font-size: 14px; line-height: 1.56; }
+    .hero__actions {
+      width: 100%; padding: 60px max(0px, calc((100% - 512px) / 2)) 50px;
+      justify-content: flex-start; gap: 16px;
+    }
+    .hero__action {
+      padding: 0; border-radius: 0; overflow: visible; isolation: auto;
+      font-size: 14px; line-height: 1.4; text-decoration: underline; text-underline-offset: 3px;
+    }
+    .hero__action::before { display: none; }
+    .hero__action > span { z-index: auto; }
+    .hero__action:hover, .hero__action:focus-visible { transform: none; }
+    .projects { gap: 0; }
+    .projects__title {
+      width: 100%; min-height: 72px; padding: 40px max(0px, calc((100% - 512px) / 2)) 0;
+      font-size: 24px; font-weight: 400; line-height: 1.32;
+    }
+    .project-meta { min-height: 122px; padding: 60px 0 40px; }
+    .project-meta__inner {
+      width: min(512px, 100%); margin: 0 auto; display: flex; align-items: center;
+      flex-wrap: wrap; gap: 4px 8px; font-size: 14px; line-height: 1.56;
+    }
+    .project-meta__logo { width: 20px; height: 20px; border-radius: 50%; }
+    .project-meta__logo svg, .project-meta__logo img { width: 20px; height: 20px; }
+    .project-meta__name { color: var(--color-text); }
+    .project-meta__role, .project-meta__period, .project-meta__separator { color: var(--color-muted); }
+    .card {
+      border-radius: 8px; padding: 80px 60px 60px; gap: 20px;
+      transition: transform var(--motion-duration-medium) var(--motion-ease-out), opacity var(--motion-duration-normal) var(--motion-ease-out);
+    }
+    .card__header { display: none; }
+    .card__image-wrap { border-radius: 0; }
+    .card__image-wrap img { border-radius: 0; }
+    .card__desc {
+      display: block; margin: 0; opacity: 1; visibility: visible; transform: none;
+      transition: none; overflow: visible;
+    }
+    .card:hover .card__desc, .card:focus-visible .card__desc {
+      display: block; grid-template-rows: 1fr; margin-top: 0; opacity: 1; visibility: visible;
+      transform: none; transition: none;
+    }
+    .card__desc p {
+      width: min(512px, 100%); font-size: 12px; line-height: 1.56; text-align: center;
+    }
+    .shots-grid { gap: 8px; margin-top: 0; }
+    .shot-card {
+      height: 707px; border: 1px solid var(--color-card-bg); border-radius: 8px;
+      padding: 60px; justify-content: flex-start; gap: 0; background: #fff;
+    }
+    .shot-card__media { width: min(400px, 100%); height: 568px; transform: none; }
+    .shot-card__image { height: 500px; }
+    .shot-card__title {
+      position: static; width: min(400px, 100%); margin: 0; opacity: 1; transform: none;
+      font-size: 12px; line-height: 1.56; text-align: center; transition: none;
+    }
+    .shot-card:hover .shot-card__title, .shot-card:not(:hover) .shot-card__title { opacity: 1; transform: none; }
+    .projects__more {
+      width: min(512px, 100%); min-height: 122px; margin: 0 auto;
+      padding: 60px 0 40px; font-size: 14px; line-height: 1.56;
+    }
+    .projects__cta {
+      width: min(512px, 100%); margin: 40px auto 0; padding: 0;
+      font-size: 24px; line-height: 1.32;
+    }
+    .projects__copyright { width: min(512px, 100%); margin: 60px auto 0; padding: 0; }
+    .card-hover-label {
+      position: fixed; z-index: 100; top: 0; left: 0; pointer-events: none;
+      padding: 8px 12px; border-radius: 999px; color: white; background: #19191a;
+      font: 500 12px/1.2 var(--font-main); opacity: 0; visibility: hidden;
+      transition: opacity 120ms ease, visibility 120ms ease; will-change: transform;
+    }
+    .card-hover-label.is-visible { opacity: 1; visibility: visible; }
+    @media (max-width: 900px) {
+      .card { padding: 56px 32px 44px; }
+      .shot-card { padding: 40px 24px; }
+      .shot-card__media { width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .content { gap: 0; }
+      .hero { gap: 0; }
+      .hero__description, .hero__experience { padding-left: 0; padding-right: 0; }
+      .hero__description { padding-top: 32px; }
+      .hero__portrait { margin-left: 0; }
+      .hero__actions { padding: 40px 0 40px; gap: 14px; }
+      .hero__greeting, .hero__bio { font-size: 23px; line-height: 1.34; }
+      .projects__title { min-height: auto; padding: 28px 0 20px; }
+      .project-meta { min-height: 0; padding: 28px 8px 20px; }
+      .project-meta__inner { gap: 4px 6px; font-size: 12px; }
+      .project-meta__logo, .project-meta__logo svg, .project-meta__logo img { width: 18px; height: 18px; }
+      .card { border-radius: 8px; padding: 20px 16px 24px; gap: 12px; }
+      .card__image-wrap { min-height: 0; }
+      .card__image-wrap img { width: 100%; max-width: 100%; }
+      .card__desc { margin: 0; }
+      .card__desc p { width: 100%; font-size: 12px; line-height: 1.5; }
+      .projects__more { min-height: 0; padding: 32px 0 24px; font-size: 13px; }
+      .shots-grid { gap: 8px; }
+      .shot-card { height: auto; min-height: 0; border-radius: 8px; padding: 20px 10px; gap: 12px; }
+      .shot-card__media { width: 100%; height: clamp(176px, 55vw, 268px); }
+      .shot-card__image { height: 100%; }
+      .shot-card--finconsult .shot-card__media, .shot-card--storecloud-delivery .shot-card__media, .shot-card--foodzy-site .shot-card__media {
+        width: 100%; margin-right: 0;
+      }
+      .shot-card__title { position: static; width: 100%; font-size: 11px; line-height: 1.45; }
+      .projects__cta { margin-top: 32px; font-size: 23px; }
+      .projects__copyright { margin-top: 60px; }
+      .card-hover-label { display: none; }
+    }
+
+
+    /* Requested hover behavior refinements */
+    .hero__action-muted { display: none; }
+    .card, .card:hover, .card:focus-visible,
+    .shot-card, .shot-card:hover,
+    .card__image-wrap, .card:hover .card__image-wrap, .card:focus-visible .card__image-wrap,
+    .shot-card__media, .shot-card:hover .shot-card__media, .shot-card:not(:hover) .shot-card__media {
+      transform: none; transition: none;
+    }
+    .card:hover, .card:focus-visible { z-index: auto; }
+    .shot-card { background: var(--color-card-bg); border: 0; }
+    .card--coming-soon, a.card--coming-soon { cursor: default !important; }
+    .shot-card--finconsult .shot-card__media,
+    .shot-card--foodzy-site .shot-card__media,
+    .shot-card--storecloud-delivery .shot-card__media {
+      width: calc(100% + 60px); margin-right: -59px; align-self: flex-end; justify-content: flex-end;
+    }
+    @media (max-width: 900px) {
+      .shot-card--finconsult .shot-card__media,
+      .shot-card--foodzy-site .shot-card__media,
+      .shot-card--storecloud-delivery .shot-card__media {
+        width: calc(100% + 24px); margin-right: -23px;
+      }
+    }
+    .card-hover-label { background: var(--color-hover); }
+    .card-hover-label.is-coming-soon { background: #19191a; }
+    .shot-card__title, .shot-card:hover .shot-card__title, .shot-card:not(:hover) .shot-card__title {
+      opacity: 1; transform: none; transition: none;
+    }
+    @media (max-width: 640px) {
+      .shot-card--finconsult .shot-card__media,
+      .shot-card--foodzy-site .shot-card__media,
+      .shot-card--storecloud-delivery .shot-card__media {
+        width: calc(100% + 10px); margin-right: -9px; align-self: flex-end; justify-content: flex-end;
+      }
+    }
+
   </style>
 
 </head>
 <body>
 
 <div class="page" id="main-page">
+  <span class="card-hover-label" aria-hidden="true">Подробнее</span>
   <button class="language-toggle" type="button" aria-label="Switch to English">ENG</button>
   <div class="content">
 
@@ -1012,13 +1190,13 @@
           <span class="hero__greeting">Привет, я&nbsp;Лёша.</span>
         </div>
         <p class="hero__bio">
-          15+ лет&nbsp;в&nbsp;дизайне — от&nbsp;визуальных систем и&nbsp;концептов до&nbsp;сложных цифровых продуктов. Сейчас я&nbsp;развиваю торговый эквайринг в&nbsp;<a href="https://alfabank.ru/" target="_blank" rel="noopener">Альфа-Банке</a> и&nbsp;менторю дизайнеров в&nbsp;<a href="https://www.duosapiens.ru/" target="_blank" rel="noopener">DuoSapiens</a>. Раньше работал над&nbsp;масштабным обновлении <a href="https://megaplan.ru/" target="_blank" rel="noopener">Мегаплана</a> и&nbsp;вёл&nbsp;множество проектов как&nbsp;дизайнер и&nbsp;арт-директор.
+          15+ лет в дизайне — от визуальных систем и концептов до сложных цифровых продуктов. Развиваю торговый эквайринг в&nbsp;<a href="https://alfabank.ru/" target="_blank" rel="noopener">Альфа-Банке</a> и&nbsp;менторю дизайнеров в&nbsp;<a href="https://duosapiens.ru/" target="_blank" rel="noopener">DuoSapiens</a>. Работал над масштабным обновлением <a href="https://megaplan.ru/" target="_blank" rel="noopener">Мегаплана</a> и вёл множество проектов как дизайнер и арт-директор.
         </p>
       </div>
 
       <div class="hero__experience">
         <p class="hero__exp-list">
-          Senior Product Designer, Альфа-Банк, 2024<span style="display:inline-flex; vertical-align:middle; margin-left:8px; position:relative; top:-2px;"><svg width="37" height="20" viewBox="0 0 37 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 10C0 4.47715 4.47715 0 10 0H27C32.5228 0 37 4.47715 37 10V10C37 15.5228 32.5228 20 27 20H10C4.47715 20 0 15.5228 0 10V10Z" fill="#0079FF"/><path d="M7.729 13V6.7H8.998L11.779 10.75V6.7H13.111V13H11.842L9.061 8.95V13H7.729ZM17.2579 13.108C16.8619 13.108 16.4869 13.048 16.1329 12.928C15.7789 12.808 15.4609 12.622 15.1789 12.37C14.9029 12.112 14.6839 11.779 14.5219 11.371C14.3659 10.963 14.2879 10.471 14.2879 9.895V9.715C14.2879 9.163 14.3659 8.692 14.5219 8.302C14.6839 7.906 14.9029 7.582 15.1789 7.33C15.4609 7.078 15.7789 6.892 16.1329 6.772C16.4869 6.652 16.8619 6.592 17.2579 6.592C17.6539 6.592 18.0289 6.652 18.3829 6.772C18.7369 6.892 19.0519 7.078 19.3279 7.33C19.6099 7.582 19.8289 7.906 19.9849 8.302C20.1469 8.692 20.2279 9.163 20.2279 9.715V9.895C20.2279 10.471 20.1469 10.963 19.9849 11.371C19.8289 11.779 19.6099 12.112 19.3279 12.37C19.0519 12.622 18.7369 12.808 18.3829 12.928C18.0289 13.048 17.6539 13.108 17.2579 13.108ZM17.2579 11.974C17.5339 11.974 17.7889 11.911 18.0229 11.785C18.2629 11.653 18.4549 11.437 18.5989 11.137C18.7489 10.831 18.8239 10.417 18.8239 9.895V9.715C18.8239 9.223 18.7489 8.833 18.5989 8.545C18.4549 8.251 18.2629 8.041 18.0229 7.915C17.7889 7.789 17.5339 7.726 17.2579 7.726C16.9879 7.726 16.7329 7.789 16.4929 7.915C16.2529 8.041 16.0579 8.251 15.9079 8.545C15.7639 8.833 15.6919 9.223 15.6919 9.715V9.895C15.6919 10.417 15.7639 10.831 15.9079 11.137C16.0579 11.437 16.2529 11.653 16.4929 11.785C16.7329 11.911 16.9879 11.974 17.2579 11.974ZM22.3352 13L20.7152 6.7H22.1192L23.1002 11.146L24.3152 6.7H25.5752L26.8172 11.164L27.8792 6.7H29.1752L27.5462 13H26.2052L24.9002 8.5L23.6762 13H22.3352Z" fill="white"/></svg></span><br aria-hidden="true" />
+          Senior Product Designer, Альфа-Банк, с 2024<br aria-hidden="true" />
           Senior Product Designer, Мегаплан, 2022 – 2024<br>
           Senior UI/UX&nbsp;Designer, HuskyJam, 2021 – 2022<br>
           Product &amp; Communication Designer, Otri, 2020 – 2021<br>
@@ -1032,23 +1210,21 @@
         <a class="hero__action" href="https://t.me/alekseimogi" target="_blank" rel="noopener"><span>Telegram</span></a>
         <a class="hero__action" href="https://drive.google.com/file/d/18DLEenQGe-qZoIj5vJXymttjr0mLrgbz/view?usp=drive_link" target="_blank" rel="noopener"><span>CV</span></a>
         <a class="hero__action" href="https://www.linkedin.com/in/alexmog/" target="_blank" rel="noopener"><span>LinkedIn</span></a>
-        <a class="hero__action" href="https://www.behance.net/alex_mog" target="_blank" rel="noopener"><span>Behance <span class="hero__action-muted">old&nbsp;works</span></span></a>
+        <a class="hero__action" href="https://www.behance.net/alex_mog" target="_blank" rel="noopener"><span>Behance </span></a>
       </div>
 
     </section>
 
     <!-- ── Projects ───────────────────────────── -->
     <section class="projects" id="projects">
+      <h2 class="projects__title">Проекты</h2>
 
       <!-- Card 1: Alfa-Bank -->
-      <a class="card" href="#case-alfa-bank" aria-label="Open case study: alfa-bank">
-        <div class="card__header">
-          <div class="card__logo card__logo--alfa"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="project-meta"><div class="project-meta__inner"><div class="card__logo project-meta__logo card__logo--alfa"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="#EF3124"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M20.103 10C18.6183 10 18.1571 10.879 17.7614 11.9998L13.6815 23.557H16.387L17.3289 20.8097H22.5345L23.4079 23.557H26.2847L22.3968 11.9998C22.021 10.8826 21.5877 10 20.103 10ZM20.0317 13.0108H19.9632L18.1137 18.4887H21.7784L20.0317 13.0108ZM26.593 29.9999H13.4072V27.2696H26.593V29.9999Z" fill="white"/>
-</svg></div>
-          <span class="card__tag">2024 – now</span>
-        </div>
+</svg></div><span class="project-meta__name">Alfa-Bank</span><span class="project-meta__role"><span class="project-meta__separator" aria-hidden="true">•</span> Senior Product Designer</span><span class="project-meta__period"><span class="project-meta__separator" aria-hidden="true">•</span> с 2024</span></div></div>
+      <a class="card" href="#case-alfa-bank" aria-label="Open case study: alfa-bank">
 
         <div class="card__image-wrap">
           <img
@@ -1066,14 +1242,11 @@
       </a>
 
       <!-- Card 2: Megaplan -->
-      <a class="card" href="#case-project-2" aria-label="Open case study: project-2">
-        <div class="card__header">
-          <div class="card__logo card__logo--megaplan"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="project-meta"><div class="project-meta__inner"><div class="card__logo project-meta__logo card__logo--megaplan"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="#5FCE6C"/>
 <path d="M12.8157 15.1642L10.3688 17.7994C10.1165 18.0711 9.99031 18.2069 10.0006 18.3677C10.0109 18.5284 10.1533 18.6471 10.4381 18.8844L11.7063 19.9413C12.1631 20.3219 12.3915 20.5122 12.6702 20.5685C12.9489 20.6247 13.2332 20.5377 13.8018 20.3639L27.2772 16.2441C27.314 16.2328 27.3539 16.247 27.3753 16.2791C27.4053 16.3242 27.3874 16.3855 27.3378 16.4073L14.2252 22.1716C13.8576 22.3332 13.6738 22.414 13.5314 22.5495C13.389 22.6851 13.2992 22.8646 13.1196 23.2237L11.4965 26.47C11.2536 26.9558 11.1321 27.1987 11.2419 27.3763C11.3517 27.5539 11.6233 27.5539 12.1665 27.5539H17.0142C17.4435 27.5539 17.6582 27.5539 17.8537 27.4784C18.0492 27.4028 18.2081 27.2584 18.5257 26.9696L31.5847 15.0978C31.8869 14.823 32.0381 14.6856 31.9918 14.5659C31.9455 14.4462 31.7413 14.4462 31.3328 14.4462H14.4623C13.9795 14.4462 13.7381 14.4462 13.5233 14.5398C13.3085 14.6335 13.1442 14.8104 12.8157 15.1642Z" fill="white" transform="translate(-1, -1)"/>
-</svg></div>
-          <span class="card__tag">2022 – 2024</span>
-        </div>
+</svg></div><span class="project-meta__name">Megaplan</span><span class="project-meta__role"><span class="project-meta__separator" aria-hidden="true">•</span> Senior Product Designer</span><span class="project-meta__period"><span class="project-meta__separator" aria-hidden="true">•</span> 2022 – 2024</span></div></div>
+      <a class="card card--coming-soon" href="#case-project-2" aria-label="Open case study: project-2">
 
         <div class="card__image-wrap">
           <img
@@ -1091,14 +1264,11 @@
       </a>
 
       <!-- Card 3: Foodzy / 2021 -->
-      <a class="card" href="#case-project-3" aria-label="Open case study: project-3">
-        <div class="card__header">
-          <div class="card__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="project-meta"><div class="project-meta__inner"><div class="card__logo project-meta__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="black"/>
 <path d="M23.3863 15.4849C23.7589 15.4849 24.1534 15.5068 24.5479 15.5726V12.2411C23.9562 12.0877 23.2548 12 22.5753 12C19.3096 12 17.3589 13.863 17.3589 16.8V17.0411H15.4521V20.4164H17.3589V28H21.5014V20.4164H24.5479V17.0411H21.5014V16.9534C21.5014 15.9452 22.0712 15.4849 23.3863 15.4849Z" fill="white"/>
-</svg></div>
-          <span class="card__tag">2021</span>
-        </div>
+</svg></div><span class="project-meta__name">Foodzy</span><span class="project-meta__role"><span class="project-meta__separator" aria-hidden="true">•</span> Senior UI/UX Designer & Brand Designer</span><span class="project-meta__period"><span class="project-meta__separator" aria-hidden="true">•</span> 2021</span></div></div>
+      <a class="card card--coming-soon" href="#case-project-3" aria-label="Open case study: project-3">
 
         <div class="card__image-wrap">
           <img
@@ -1110,22 +1280,19 @@
 
         <div class="card__desc">
           <p>
-            Разработал концепт приложения Foodzy для&nbsp;доставки с&nbsp;нуля&nbsp;— от&nbsp;брендинга до&nbsp;UX, спроектировал ключевые пользовательские сценарии и&nbsp;интерфейсы
+            Разработал с&nbsp;нуля концепт приложения Foodzy — от&nbsp;брендинга до&nbsp;продуктовой концепции, UX и&nbsp;интерфейсов. Подготовил проект для&nbsp;презентации инвесторам и&nbsp;привлечения финансирования
           </p>
         </div>
       </a>
 
       <!-- Card 4: Megaplan / 2021 -->
-      <a class="card" href="#case-project-4" aria-label="Open case study: project-4">
-        <div class="card__header">
-          <div class="card__logo card__logo--plain">
+      <div class="project-meta"><div class="project-meta__inner"><div class="card__logo project-meta__logo card__logo--plain">
             <img
               src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2240%22%20height%3D%2240%22%20viewBox%3D%220%200%2040%2040%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2240%22%20height%3D%2240%22%20rx%3D%2220%22%20fill%3D%22%23FF7869%22%2F%3E%0A%3Cpath%20d%3D%22M11.7916%2028.9966H11.7918C13.0589%2029.0108%2014.4951%2029.027%2015.1652%2028.013C15.8178%2027.0256%2016.144%2026.5319%2016.6427%2026.2637C17.1414%2025.9955%2017.7332%2025.9955%2018.9167%2025.9955H24.51C26.9934%2025.9955%2029.0066%2023.9823%2029.0066%2021.4989C29.0066%2019.0155%2026.9934%2017.0022%2024.51%2017.0022H23.2828C22.6661%2017.0022%2022.3578%2017.0022%2022.0861%2017.1129C21.9872%2017.1531%2021.8929%2017.2038%2021.8048%2017.2641C21.5627%2017.4298%2021.3926%2017.687%2021.0526%2018.2013C20.5425%2018.9729%2020.2874%2019.3587%2019.9242%2019.6072C19.792%2019.6977%2019.6506%2019.7737%2019.5023%2019.8341C19.0947%2020%2018.6322%2020%2017.7073%2020H15.5167C14.6889%2020%2014.0178%2019.3289%2014.0178%2018.5011C14.0178%2017.6733%2014.6889%2017.0022%2015.5167%2017.0022H20.4077C21.0247%2017.0022%2021.3332%2017.0022%2021.6051%2016.8915C21.7036%2016.8513%2021.7976%2016.8008%2021.8854%2016.7408C22.1278%2016.5751%2022.298%2016.3178%2022.6384%2015.8031C23.1489%2015.0312%2023.4042%2014.6452%2023.7678%2014.3967C23.8995%2014.3066%2024.0405%2014.2308%2024.1883%2014.1706C24.5962%2014.0045%2025.0589%2014.0045%2025.9845%2014.0045H26.566C27.1704%2014.0045%2027.4726%2014.0045%2027.7229%2013.8624C27.9732%2013.7203%2028.1281%2013.4608%2028.4379%2012.9419L29.3964%2011.3365C29.4837%2011.1902%2029.5274%2011.1171%2029.496%2011.0619C29.4647%2011.0067%2029.3795%2011.0067%2029.2092%2011.0067H28.6668C28.526%2011.0067%2028.3815%2011.0051%2028.2347%2011.0034C26.9676%2010.9892%2025.5316%2010.973%2024.8615%2011.987C24.2089%2012.9744%2023.8827%2013.4681%2023.384%2013.7363C22.8853%2014.0045%2022.2935%2014.0045%2021.11%2014.0045H15.5167C13.0333%2014.0045%2011.0201%2016.0177%2011.0201%2018.5011C11.0201%2020.9845%2013.0333%2022.9978%2015.5167%2022.9978H16.7439C17.3606%2022.9978%2017.6689%2022.9978%2017.9406%2022.8871C18.0395%2022.8469%2018.1338%2022.7962%2018.2219%2022.7359C18.464%2022.5702%2018.6341%2022.313%2018.9741%2021.7987C19.4842%2021.0271%2019.7393%2020.6413%2020.1025%2020.3928C20.2346%2020.3023%2020.3761%2020.2263%2020.5244%2020.1659C20.932%2020%2021.3945%2020%2022.3194%2020H24.51C25.3378%2020%2026.0089%2020.6711%2026.0089%2021.4989C26.0089%2022.3267%2025.3378%2022.9978%2024.51%2022.9978H19.619C19.002%2022.9978%2018.6935%2022.9978%2018.4216%2023.1085C18.3231%2023.1487%2018.2291%2023.1992%2018.1412%2023.2592C17.8989%2023.4249%2017.7287%2023.6822%2017.3883%2024.1968C16.8778%2024.9688%2016.6225%2025.3548%2016.2589%2025.6033C16.1271%2025.6934%2015.9862%2025.7692%2015.8384%2025.8294C15.4305%2025.9955%2014.9678%2025.9955%2014.0422%2025.9955H13.4339C12.8295%2025.9955%2012.5273%2025.9955%2012.277%2026.1376C12.0266%2026.2797%2011.8717%2026.5392%2011.5619%2027.0581L10.6036%2028.6633C10.5163%2028.8095%2010.4727%2028.8826%2010.504%2028.9378C10.5353%2028.993%2010.6204%2028.993%2010.7907%2028.9931L11.3599%2028.9933C11.5006%2028.9933%2011.645%2028.9949%2011.7916%2028.9966Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E"
               alt="storecloud"
             />
-          </div>
-          <span class="card__tag">2021</span>
-        </div>
+          </div><span class="project-meta__name">Storecloud</span><span class="project-meta__role"><span class="project-meta__separator" aria-hidden="true">•</span> Senior UI/UX Designer & Brand Designer</span><span class="project-meta__period"><span class="project-meta__separator" aria-hidden="true">•</span> 2021</span></div></div>
+      <a class="card card--coming-soon" href="#case-project-4" aria-label="Open case study: project-4">
 
         <div class="card__image-wrap">
           <img
@@ -1137,20 +1304,17 @@
 
         <div class="card__desc">
           <p>
-            Cпроектировал цифровую экосистему для&nbsp;сервиса доставки: интерфейсы управления, приложение для&nbsp;курьеров и&nbsp;создал фирменный стиль продукта
+            Спроектировал цифровую экосистему для&nbsp;сервиса доставки — от&nbsp;фирменного стиля до&nbsp;интерфейсов управления и&nbsp;приложения для&nbsp;курьеров, объединив всё в&nbsp;единый продукт
           </p>
         </div>
       </a>
 
       <!-- Card 5: 2017 -->
-      <a class="card" href="https://packagingoftheworld.com/2017/03/the-duck-rabbit-craft-brewery-concept.html" target="_blank" rel="noopener">
-        <div class="card__header">
-          <div class="card__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div class="project-meta"><div class="project-meta__inner"><div class="card__logo project-meta__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="white"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M23.0056 10.0344C22.3302 10.1078 21.6248 10.3217 20.967 10.6526C19.4153 11.4328 18.421 12.7447 18.1629 14.3521L18.1193 14.6234L17.6424 14.1444C16.7142 13.2122 15.9928 12.3922 15.6558 11.8864C15.581 11.7741 15.504 11.6821 15.4847 11.6819C15.4654 11.6817 15.339 11.7594 15.2039 11.8546L14.9582 12.0276L14.9133 12.2291C14.6035 13.6223 14.6986 15.1413 15.1215 15.5525C15.2433 15.6709 16.1551 16.1181 16.6656 16.3097C17.2532 16.5303 18.0838 16.787 18.4661 16.8661L18.7749 16.9301L19.0979 17.2654C19.4415 17.622 19.9178 17.9765 20.2327 18.1099C20.338 18.1546 20.4315 18.1988 20.4405 18.2081C20.4495 18.2175 20.2633 18.2452 20.0267 18.2697C18.13 18.4658 16.4489 19.0544 15.0775 20.0027L14.5386 20.3753L14.0792 20.8549C13.2398 21.7311 12.8001 22.5788 12.5792 23.7467L12.5018 24.1558L12.5 24.797C12.499 25.1863 12.5171 25.5462 12.5461 25.713C12.7148 26.6832 13.1113 27.5203 13.7193 28.19C14.7861 29.365 16.4798 30 18.547 30C19.7941 30 20.8438 29.7791 21.8873 29.2971L22.2803 29.1156L22.6078 29.2433C23.1209 29.4431 23.3921 29.4926 24.0892 29.5133C24.9147 29.5379 25.4525 29.4691 26.092 29.2573L26.3317 29.1778L26.3088 29.0502C26.2961 28.98 26.2355 28.7899 26.174 28.6277L26.0621 28.3328L25.9748 28.3404C25.1488 28.4122 24.8729 28.3876 24.3675 28.197C24.208 28.1369 24.0775 28.0826 24.0775 28.0764C24.0775 28.0701 24.1843 27.9821 24.3148 27.8807C25.0358 27.3207 25.7354 26.2439 26.085 25.1562C26.2466 24.6531 26.3289 24.1962 26.351 23.6781L26.3713 23.2004L26.3126 22.8903C26.277 22.7024 26.1941 22.4503 26.1022 22.2504L25.9505 21.9207L25.7182 21.6602C25.3114 21.204 24.8176 20.9341 24.1773 20.818L23.8491 20.7585L23.3747 20.776C22.8278 20.7962 22.5105 20.8646 22.047 21.0619C21.6019 21.2514 21.1695 21.5582 20.7884 21.9547C20.076 22.696 19.7084 23.5234 19.6121 24.6026L19.5746 25.0228L19.6131 25.432C19.7134 26.4951 20.0775 27.3361 20.7371 28.0282L21.0754 28.383L20.8104 28.4089C20.4644 28.4428 19.7492 28.4052 19.3506 28.3324C18.724 28.2178 18.0015 27.9131 17.6077 27.5973C17.059 27.1574 16.6335 26.4559 16.4249 25.6473L16.3332 25.2916L16.3307 24.6138L16.3282 23.9359L16.4101 23.5542C16.6426 22.4716 17.1319 21.5898 17.9281 20.8181C18.6586 20.1102 19.6142 19.6627 20.8267 19.4608L21.2133 19.3964L22.0216 19.3944C22.4662 19.3933 23.0022 19.4007 23.2127 19.4108L23.5955 19.4291L23.6626 19.2276C23.7354 19.0088 23.9066 18.3043 23.8909 18.2879C23.8856 18.2823 23.7117 18.2611 23.5045 18.2406C22.7843 18.1694 22.3962 18.0093 22.0426 17.6373L21.8235 17.4068L22.5727 17.385C23.4725 17.3587 24.0146 17.2728 24.6223 17.0599C25.4107 16.7838 25.9606 16.4267 26.4943 15.8444C26.9702 15.325 27.2479 14.8159 27.4233 14.1409L27.4964 13.8597L27.4982 13.3284L27.5 12.7971L27.4405 12.5472C27.1652 11.3906 26.2436 10.4891 25.0026 10.1622C24.4132 10.007 23.6856 9.96041 23.0056 10.0344ZM23.1178 11.3295C22.8008 11.424 22.5582 11.5764 22.3032 11.8413C21.7811 12.3835 21.4404 13.1305 21.2822 14.0795C21.1992 14.5775 21.1994 15.4632 21.2827 15.9233L21.3445 16.2647L21.4305 16.2988C21.4778 16.3176 21.7265 16.3329 21.9831 16.3329H22.4497L22.7276 16.2599C22.8806 16.2197 23.1243 16.1252 23.2692 16.0497L23.5328 15.9126L23.8843 15.5455L24.2357 15.1784L24.42 14.8516C24.8587 14.0737 25.0626 13.179 24.9589 12.4856C24.8795 11.9545 24.6387 11.5892 24.2444 11.4021L24.0248 11.2978L23.6558 11.2885C23.422 11.2826 23.2249 11.2976 23.1178 11.3295ZM24.0738 22.3899C23.8265 22.4982 23.7127 22.5825 23.5121 22.8061C22.6697 23.7451 22.487 25.8168 23.1297 27.1442L23.2364 27.3646L23.3846 27.2735C23.8299 26.9999 24.3678 26.4394 24.6972 25.9058C25.1844 25.1165 25.4793 24.1029 25.4413 23.3482L25.4257 23.0391L25.3051 22.7927L25.1846 22.5464L25.0117 22.4351L24.8388 22.3237L24.5548 22.3136L24.2708 22.3035L24.0738 22.3899Z" fill="black"/>
-</svg></div>
-          <span class="card__tag">2017</span>
-        </div>
+</svg></div><span class="project-meta__name">Duck&amp;Rabbit</span><span class="project-meta__role"><span class="project-meta__separator" aria-hidden="true">•</span> Art Director</span><span class="project-meta__period"><span class="project-meta__separator" aria-hidden="true">•</span> 2017</span></div></div>
+      <a class="card" href="https://packagingoftheworld.com/2017/03/the-duck-rabbit-craft-brewery-concept.html" target="_blank" rel="noopener">
 
         <div class="card__image-wrap">
           <img
@@ -1177,7 +1341,7 @@
         </div>
         <div class="shot-card shot-card--finconsult">
           <div class="shot-card__media">
-            <img class="shot-card__image" loading="lazy" src="../assets/shots/finconsult_main.png" alt="Finconsult">
+            <img class="shot-card__image" loading="lazy" src="../assets/shots/finconsult_case_01.png" alt="Finconsult">
           </div>
           <p class="shot-card__title">Финансовый сервис Finconsult</p>
         </div>
@@ -1201,13 +1365,13 @@
         </div>
         <div class="shot-card shot-card--foodzy-site">
           <div class="shot-card__media">
-            <img class="shot-card__image" loading="lazy" src="../assets/shots/foodzy_shot_main.png" alt="Foodzy site">
+            <img class="shot-card__image" loading="lazy" src="../assets/shots/foodzy_case_01.png" alt="Foodzy site">
           </div>
           <p class="shot-card__title">Сайт для&nbsp;Foodzy</p>
         </div>
         <div class="shot-card shot-card--storecloud-delivery">
           <div class="shot-card__media">
-            <img class="shot-card__image" loading="lazy" src="../assets/shots/storecloud_shot_main.png" alt="Storecloud delivery">
+            <img class="shot-card__image" loading="lazy" src="../assets/shots/storecloud_case_01.png" alt="Storecloud delivery">
           </div>
           <p class="shot-card__title">Управление доставкой для&nbsp;Storecloud</p>
         </div>
@@ -1234,31 +1398,24 @@
         <article class="case-study case-study--alfa" id="case-alfa-bank" data-case-title="Alfa-Bank — Merchant Acquiring">
 <header class="case-study__hero"><h1 class="case-study__title">Merchant acquiring<br>in&nbsp;the&nbsp;Alfa-Bank mobile app</h1></header>
       <div class="case-study__copy case-study__intro">
-        <p><strong>From sign-up&nbsp;to&nbsp;managing merchant locations — all&nbsp;in&nbsp;one&nbsp;service</strong></p>
         <p>Together with the&nbsp;team, I&nbsp;designed a&nbsp;mobile merchant acquiring experience for&nbsp;entrepreneurs: from learning about the&nbsp;product and&nbsp;submitting an&nbsp;application to&nbsp;managing merchant locations, equipment, documents, and&nbsp;transactions.</p>
-        <p>Previously, merchant acquiring sign-up&nbsp;and&nbsp;management were available only in&nbsp;the&nbsp;desktop internet bank. Merchants needed a&nbsp;mobile channel where they could learn about the&nbsp;service, submit an&nbsp;application, and&nbsp;manage their connected product.</p>
-        <p>We&nbsp;moved key&nbsp;scenarios into the&nbsp;mobile app&nbsp;and&nbsp;reworked the&nbsp;application to&nbsp;make the&nbsp;terms easier to&nbsp;understand and&nbsp;the&nbsp;required information easier to&nbsp;provide.</p>
+        <p>Previously, merchant acquiring was&nbsp;available only in&nbsp;the&nbsp;desktop version. We&nbsp;moved key&nbsp;scenarios into the&nbsp;mobile app, redesigned the&nbsp;landing page and&nbsp;application, and&nbsp;built all&nbsp;sections of&nbsp;the&nbsp;merchant acquiring account.</p>
       </div>
-      <div class="case-study__copy case-study__result-copy"><p>Within the&nbsp;first year after launch, 17% of&nbsp;new&nbsp;merchant acquiring sign-ups&nbsp;came through the&nbsp;mobile app</p></div>
-      <div class="case-study__copy case-study__team-copy"><p>I&nbsp;own&nbsp;the&nbsp;service interfaces end&nbsp;to&nbsp;end—from the&nbsp;landing page and&nbsp;application to&nbsp;the&nbsp;mobile account. I&nbsp;work with a&nbsp;product manager, analyst, developers, and&nbsp;QA.</p></div>
-      <figure class="case-study__alfa-cover">
-        <video class="case-study__alfa-cover-video" autoplay muted loop playsinline preload="metadata" poster="../assets/cases/alfa-bank/cover.png" aria-label="Alfa-Bank merchant acquiring mobile app">
-          <source src="../assets/cases/alfa-bank/merchant-acquiring.mp4" type="video/mp4" />
-          <source src="../assets/cases/alfa-bank/merchant-acquiring.mov" type="video/quicktime" />
-        </video>
-      </figure>
+      <div class="case-study__facts">
+        <div><span class="case-study__fact-label">My role</span><p class="case-study__fact-value">Senior Product Designer</p></div>
+        <div><span class="case-study__fact-label">Team</span><p class="case-study__fact-value">Product Owner, analyst, 2&nbsp;iOS developers, 2&nbsp;Android developers, 2&nbsp;backend developers, and&nbsp;2&nbsp;QA engineers</p></div>
+        <div><span class="case-study__fact-label">Result</span><p class="case-study__result-number">0 → 17%</p><p class="case-study__result-description">Within the&nbsp;first year after launch, 17% of&nbsp;new merchant acquiring sign-ups came through the&nbsp;mobile app</p></div>
+      </div>
+      <figure class="case-study__alfa-cover"></figure>
       <section class="case-study__section">
-        <h2>Application: one&nbsp;flow for&nbsp;clients with different levels of&nbsp;experience</h2>
+        <h2>Merchant acquiring application</h2>
         <div class="case-study__copy">
           <p>A&nbsp;key&nbsp;part of&nbsp;the&nbsp;work was&nbsp;reworking the&nbsp;application: breaking it&nbsp;into clear steps, reducing perceived complexity, reorganizing form fields, and&nbsp;rethinking the&nbsp;screen structure.</p>
           <p>We&nbsp;conducted UX&nbsp;research on&nbsp;the&nbsp;application to&nbsp;understand how&nbsp;clear the&nbsp;flow was&nbsp;and&nbsp;whether it&nbsp;provided enough information for&nbsp;people to&nbsp;complete it&nbsp;on&nbsp;their own.</p>
-          <p>The&nbsp;study involved eight entrepreneurs: four Alfa-Bank clients looking to&nbsp;sign up&nbsp;for&nbsp;merchant acquiring for&nbsp;the&nbsp;first time, and&nbsp;four clients of&nbsp;other banks considering a&nbsp;switch to&nbsp;Alfa-Bank.</p>
-          <p>Experienced users navigated tariffs and&nbsp;equipment more easily and&nbsp;completed the&nbsp;application with greater confidence. Newcomers found it&nbsp;harder to&nbsp;make a&nbsp;choice, and&nbsp;some steps required help from a&nbsp;bank employee.</p>
           <p>This revealed a&nbsp;product challenge: the&nbsp;application had&nbsp;to&nbsp;support independent completion without assuming every user already knew which tariff or&nbsp;terminal they needed.</p>
         </div>
       </section>
       <section class="case-study__section">
-        <h2>Solutions</h2>
         <div class="case-study__copy">
           <h3 class="case-study__subheading">Structuring the&nbsp;application data</h3>
           <p>Research showed that the&nbsp;application was&nbsp;difficult not&nbsp;only because of&nbsp;the&nbsp;amount of&nbsp;data. Users needed to&nbsp;understand which details belonged to&nbsp;the&nbsp;company and&nbsp;the&nbsp;merchant location, choose equipment, and&nbsp;assess the&nbsp;tariff. For&nbsp;newcomers, that also meant making decisions without enough experience.</p>
@@ -1266,19 +1423,19 @@
           <p>The&nbsp;first step became short and&nbsp;clear: company director, account, payout method, and&nbsp;an&nbsp;email for&nbsp;communication. We&nbsp;can&nbsp;prefill most fields using the&nbsp;client’s&nbsp;main profile.</p>
         </div>
       </section>
-      <div class="case-study__alfa-gallery-placeholder" aria-hidden="true"></div>
+      <figure class="case-study__alfa-gallery-placeholder case-study__alfa-gallery-placeholder--application"></figure>
       <section class="case-study__section">
         <div class="case-study__copy">
-          <h3 class="case-study__subheading">Equipment: make the&nbsp;options clear before choosing</h3>
+          <h3 class="case-study__subheading">Equipment</h3>
           <p>During research, participants lacked information about connection types, device usage requirements, and&nbsp;details about terminals and&nbsp;apps.</p>
           <p>In&nbsp;the&nbsp;updated flow, equipment appears in&nbsp;a&nbsp;separate block within merchant location settings. Users can&nbsp;add&nbsp;several devices and&nbsp;review their specifications in&nbsp;detail.</p>
           <p>The&nbsp;second step has&nbsp;three levels: a&nbsp;list of&nbsp;merchant locations, location details, and&nbsp;a&nbsp;screen for&nbsp;choosing and&nbsp;setting up&nbsp;equipment.</p>
         </div>
       </section>
-      <div class="case-study__alfa-gallery-placeholder" aria-hidden="true"></div>
+      <figure class="case-study__alfa-gallery-placeholder case-study__alfa-gallery-placeholder--equipment"></figure>
       <section class="case-study__section">
         <div class="case-study__copy">
-          <h3 class="case-study__subheading">Tariffs: clear terms and&nbsp;precise numbers</h3>
+          <h3 class="case-study__subheading">Tariff</h3>
           <p>Choosing a&nbsp;tariff was&nbsp;one&nbsp;of&nbsp;the&nbsp;key&nbsp;challenges identified in&nbsp;the&nbsp;research. The&nbsp;solution was&nbsp;to&nbsp;show all&nbsp;tariff terms and&nbsp;let&nbsp;clients estimate their monthly payment based on&nbsp;their own&nbsp;details.</p>
           <p>A&nbsp;payment calculator was&nbsp;added to&nbsp;tariff selection, so&nbsp;clients can&nbsp;find a&nbsp;plan that fits their business and&nbsp;compare it&nbsp;with others.</p>
         </div>
@@ -1316,7 +1473,109 @@
       .case-study.is-active { animation: none; }
     }
 
-  </style>
+
+    /* Case study layout follows the same 1056px frame and centered text measure as home. */
+    .case-study {
+      max-width: var(--home-content-width);
+      padding: var(--content-pad-top) clamp(24px, 5vw, 48px) 120px;
+    }
+    .case-study__hero {
+      width: 100%;
+      padding: 0 max(0px, calc((100% - 512px) / 2));
+    }
+    .case-study__title {
+      width: min(512px, 100%);
+      max-width: none;
+      font-size: 24px;
+      line-height: 1.32;
+      font-weight: 400;
+    }
+    .case-study__copy {
+      width: min(512px, 100%);
+      margin: 40px auto 0;
+      font-size: 14px;
+      line-height: 1.56;
+    }
+    .case-study__copy p + p { margin-top: 20px; }
+    .case-study__intro { margin-top: 40px; font-weight: 400; }
+    .case-study__intro p:first-child { font-weight: 400; }
+    .case-study__facts {
+      width: min(512px, 100%);
+      flex-direction: column;
+      gap: 20px;
+      margin: 20px auto 40px;
+    }
+    .case-study__facts > div { width: 100%; }
+    .case-study__fact-label { margin-bottom: 8px; }
+    .case-study__fact-value { margin: 0; }
+    .case-study__result-number { margin: 0 0 8px; font-size: 24px; line-height: 1.32; }
+    .case-study__result-description { margin: 0; font-size: 14px; line-height: 1.56; }
+    .case-study__result-copy { margin-top: 24px; }
+    .case-study__team-copy { margin-top: 20px; }
+    .case-study__section { margin-top: 40px; }
+    .case-study__section h2 {
+      width: min(512px, 100%);
+      margin: 0 auto;
+      font-size: 18px;
+      line-height: 1.32;
+      font-weight: 400;
+    }
+    .case-study__section > .case-study__copy { margin: 40px auto 0; }
+    .case-study__subheading { margin: 0 0 20px; font-weight: 500; }
+    .case-study__alfa-cover,
+    .case-study__cover,
+    .case-study__alfa-gallery-placeholder {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 0;
+      aspect-ratio: 1056 / 785;
+      margin: 40px auto 0;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid #f4f4f4;
+      border-radius: 8px;
+      background: #f4f4f4;
+    }
+    /* The earlier Alfa-specific rule has higher specificity than the shared card rule. */
+    .case-study--alfa .case-study__alfa-cover { border-radius: 8px; }
+    .case-study__alfa-cover-video,
+    .case-study__alfa-gallery-placeholder img { display: none !important; }
+    .case-study__alfa-gallery-placeholder--application,
+    .case-study__alfa-gallery-placeholder--equipment { justify-content: initial; }
+    .case-study__status {
+      width: min(512px, 100%);
+      margin: 32px auto 0;
+    }
+    .case-study__placeholder {
+      min-height: 0;
+      aspect-ratio: 1056 / 785;
+      padding: 0;
+      border: 1px solid #f4f4f4;
+      border-radius: 8px;
+      background: #f4f4f4;
+    }
+    .case-study__gallery { gap: 8px; }
+    @media (max-width: 640px) {
+      .case-study { padding: var(--content-pad-top) 16px 56px; }
+      .case-study__hero { padding: 0; }
+      .case-study__title { font-size: 22px; }
+      .case-study__copy { width: 100%; margin-top: 28px; font-size: 14px; }
+      .case-study__intro { margin-top: 28px; }
+      .case-study__result-copy { margin-top: 20px; }
+      .case-study__team-copy { margin-top: 20px; }
+      .case-study__section { margin-top: 32px; }
+      .case-study__section h2 { width: 100%; font-size: 18px; }
+      .case-study__section > .case-study__copy { margin-top: 28px; }
+      .case-study__alfa-cover,
+      .case-study__cover,
+      .case-study__alfa-gallery-placeholder { aspect-ratio: 1056 / 785; margin-top: 32px; border-radius: 8px; }
+      .case-study__status { width: 100%; }
+      .case-study__gallery { grid-template-columns: 1fr; gap: 8px; }
+      .case-study__gallery .case-study__placeholder { aspect-ratio: 1056 / 785; }
+    }
+
+</style>
 
   <script>
   document.querySelectorAll('.card__image-wrap img, .shot-card__image').forEach((image) => {
@@ -1338,12 +1597,16 @@
     const bio = document.querySelector('.hero__bio');
     const exp = document.querySelector('.hero__exp-list');
     const descs = document.querySelectorAll('.card__desc p');
+    const projectsTitle = document.querySelector('.projects__title');
+    const hoverLabel = document.querySelector('.card-hover-label');
+    const projectNames = document.querySelectorAll('.project-meta__name');
+    const projectRoles = document.querySelectorAll('.project-meta__role');
+    const projectPeriods = document.querySelectorAll('.project-meta__period');
     const more = document.querySelector('.projects__more');
     const shotTitles = document.querySelectorAll('.shot-card__title');
     const cta = document.querySelector('.projects__cta');
     const copyright = document.querySelector('.projects__copyright');
     const cvLink = document.querySelector('.hero__action[href*="drive.google.com"]');
-    const nowBadge = exp ? exp.querySelector('span[style]')?.outerHTML || '' : '';
 
     const content = {
       ru: {
@@ -1351,8 +1614,12 @@
         title: 'Лёша — Product Designer',
         lang: 'ru',
         greeting: 'Привет, я&nbsp;Лёша.',
-        bio: '15+ лет&nbsp;в&nbsp;дизайне — от&nbsp;визуальных систем и&nbsp;концептов до&nbsp;сложных цифровых продуктов. Сейчас я&nbsp;развиваю торговый эквайринг в&nbsp;<a href="https://alfabank.ru/" target="_blank" rel="noopener">Альфа-Банке</a> и&nbsp;менторю дизайнеров в&nbsp;<a href="https://duosapiens.ru/" target="_blank" rel="noopener">DuoSapiens</a>. Раньше работал над&nbsp;масштабным обновлении <a href="https://megaplan.ru/" target="_blank" rel="noopener">Мегаплана</a> и&nbsp;вёл&nbsp;множество проектов как&nbsp;дизайнер и&nbsp;арт-директор.',
-        experience: `Senior Product Designer, Альфа-Банк, 2024${nowBadge}<br aria-hidden="true" />
+        projectsTitle: 'Проекты', hoverLabel: 'Подробнее',
+        projectNames: ['Alfa-Bank', 'Megaplan', 'Foodzy', 'Storecloud', 'Duck&amp;Rabbit'],
+        projectRoles: ['Senior Product Designer', 'Senior Product Designer', 'Senior UI/UX Designer &amp; Brand Designer', 'Senior UI/UX Designer &amp; Brand Designer', 'Art Director'],
+        projectPeriods: ['с 2024', '2022 – 2024', '2021', '2021', '2017'],
+        bio: '15+ лет в&nbsp;дизайне — от&nbsp;визуальных систем и&nbsp;концептов до&nbsp;сложных цифровых продуктов. Развиваю торговый эквайринг в&nbsp;<a href="https://alfabank.ru/" target="_blank" rel="noopener">Альфа-Банке</a> и&nbsp;менторю дизайнеров в&nbsp;<a href="https://duosapiens.ru/" target="_blank" rel="noopener">DuoSapiens</a>. Работал над&nbsp;масштабным обновлением <a href="https://megaplan.ru/" target="_blank" rel="noopener">Мегаплана</a> и&nbsp;вёл множество проектов как&nbsp;дизайнер и&nbsp;арт-директор.',
+        experience: `Senior Product Designer, Альфа-Банк, с 2024<br aria-hidden="true" />
           Senior Product Designer, Мегаплан, 2022 – 2024<br>
           Senior UI/UX&nbsp;Designer, HuskyJam, 2021 – 2022<br>
           Product &amp; Communication Designer, Otri, 2020 – 2021<br>
@@ -1362,8 +1629,8 @@
         cards: [
           'Развиваю торговый эквайринг в&nbsp;Альфе: пересобрал ключевые пользовательские флоу в&nbsp;цифровых каналах и&nbsp;увеличил конверсию мобильного онбординга с&nbsp;0% до&nbsp;17% за&nbsp;первый год',
           'Работал над масштабным обновлением Мегаплана: пересобрал core UX в&nbsp;сторону гибкой Notion-like модели, повысил эффективность работы с&nbsp;задачами и&nbsp;заложил дизайн-систему',
-          'Разработал концепт приложения Foodzy для&nbsp;доставки с&nbsp;нуля&nbsp;— от&nbsp;брендинга до&nbsp;UX, спроектировал ключевые пользовательские сценарии и&nbsp;интерфейсы',
-          'Cпроектировал цифровую экосистему для&nbsp;сервиса доставки: интерфейсы управления, приложение для&nbsp;курьеров и&nbsp;создал фирменный стиль продукта',
+          'Разработал с&nbsp;нуля концепт приложения Foodzy — от&nbsp;брендинга до&nbsp;продуктовой концепции, UX и&nbsp;интерфейсов. Подготовил проект для&nbsp;презентации инвесторам и&nbsp;привлечения финансирования',
+          'Спроектировал цифровую экосистему для&nbsp;сервиса доставки — от&nbsp;фирменного стиля до&nbsp;интерфейсов управления и&nbsp;приложения для&nbsp;курьеров, объединив всё в&nbsp;единый продукт',
           'Вместе с&nbsp;Денисом Безруковым переосмыслили визуальный стиль европейской пивоварни Duck&amp;Rabbit, воплотили его в&nbsp;крафт-брендинге и&nbsp;были отмечены Dieline и&nbsp;Packaging of&nbsp;the World'
         ],
         more: '...и&nbsp;ещё некоторые проекты и&nbsp;шоты',
@@ -1386,8 +1653,12 @@
         title: 'Alexey — Product Designer',
         lang: 'en',
         greeting: 'Hi, I&rsquo;m Aleks.',
-        bio: '15+ years in&nbsp;design — from visual systems and concepts to&nbsp;complex digital products. Now I&rsquo;m developing merchant acquiring at&nbsp;<a href="https://alfabank.ru/" target="_blank" rel="noopener">Alfa-Bank</a> and mentoring designers at&nbsp;<a href="https://duosapiens.ru/" target="_blank" rel="noopener">DuoSapiens</a>. Earlier, I&nbsp;worked on&nbsp;a&nbsp;large-scale <a href="https://megaplan.ru/" target="_blank" rel="noopener">Megaplan</a> redesign and led many projects as&nbsp;a&nbsp;designer and art director.',
-        experience: `Senior Product Designer, Alfa-Bank, 2024${nowBadge}<br aria-hidden="true" />
+        projectsTitle: 'Projects', hoverLabel: 'More details',
+        projectNames: ['Alfa-Bank', 'Megaplan', 'Foodzy', 'Storecloud', 'Duck&amp;Rabbit'],
+        projectRoles: ['Senior Product Designer', 'Senior Product Designer', 'Senior UI/UX Designer &amp; Brand Designer', 'Senior UI/UX Designer &amp; Brand Designer', 'Art Director'],
+        projectPeriods: ['since 2024', '2022 – 2024', '2021', '2021', '2017'],
+        bio: '15+ years in design — from visual systems and concepts to complex digital products. I develop merchant acquiring at&nbsp;<a href="https://alfabank.ru/" target="_blank" rel="noopener">Alfa-Bank</a> and mentor designers at&nbsp;<a href="https://duosapiens.ru/" target="_blank" rel="noopener">DuoSapiens</a>. I worked on a major <a href="https://megaplan.ru/" target="_blank" rel="noopener">Megaplan</a> redesign and led many projects as a designer and art director.',
+        experience: `Senior Product Designer, Alfa-Bank, since 2024<br aria-hidden="true" />
           Senior Product Designer, Megaplan, 2022 – 2024<br>
           Senior UI/UX&nbsp;Designer, HuskyJam, 2021 – 2022<br>
           Product &amp; Communication Designer, Otri, 2020 – 2021<br>
@@ -1397,8 +1668,8 @@
         cards: [
           'I&nbsp;develop merchant acquiring at&nbsp;Alfa: rebuilt key user flows in&nbsp;digital channels and increased mobile onboarding conversion from 0% to&nbsp;17% in&nbsp;the first year',
           'Worked on&nbsp;a&nbsp;major Megaplan update: rebuilt the core UX toward a&nbsp;flexible Notion-like model, improved task management efficiency, and laid the foundation for a&nbsp;design system',
-          'Designed the Foodzy delivery app concept from scratch — from branding to&nbsp;UX — and mapped the key user scenarios and interfaces',
-          'Designed a&nbsp;digital ecosystem for a&nbsp;delivery service: management interfaces, a&nbsp;courier app, and the product&rsquo;s visual identity',
+          'Built the Foodzy app concept from scratch — from branding and product concept to&nbsp;UX and interfaces. Prepared it for investor presentations and fundraising',
+          'Designed a&nbsp;digital ecosystem for a&nbsp;delivery service, from visual identity to&nbsp;management interfaces and a&nbsp;courier app, bringing everything together as&nbsp;one product',
           'Together with Denis Bezrukov, rethought the visual style of European brewery Duck&amp;Rabbit, brought it to&nbsp;life in&nbsp;craft branding, and were featured by&nbsp;Dieline and Packaging of&nbsp;the World'
         ],
         more: '...and a&nbsp;few more projects and shots',
@@ -1434,6 +1705,11 @@
       toggle.textContent = next.button;
       toggle.setAttribute('aria-label', language === 'ru' ? 'Switch to English' : 'Переключить на русский');
       if (greeting) greeting.innerHTML = next.greeting;
+      if (projectsTitle) projectsTitle.textContent = next.projectsTitle;
+      if (hoverLabel) hoverLabel.textContent = next.hoverLabel;
+      projectNames.forEach((node, index) => { if (next.projectNames[index]) node.innerHTML = next.projectNames[index]; });
+      projectRoles.forEach((node, index) => { if (next.projectRoles[index]) node.innerHTML = `<span class="project-meta__separator" aria-hidden="true">•</span> ${next.projectRoles[index]}`; });
+      projectPeriods.forEach((node, index) => { if (next.projectPeriods[index]) node.innerHTML = `<span class="project-meta__separator" aria-hidden="true">•</span> ${next.projectPeriods[index]}`; });
       if (bio) bio.innerHTML = next.bio;
       if (exp) exp.innerHTML = next.experience;
       descs.forEach((node, index) => {
@@ -1450,7 +1726,7 @@
     };
 
     toggle.addEventListener('click', () => {
-      window.location.href = getLanguageUrl(currentLanguage === 'ru' ? 'en' : 'ru');
+      window.location.href = `${getLanguageUrl(currentLanguage === 'ru' ? 'en' : 'ru')}${window.location.hash}`;
     });
 
     applyLanguage(currentLanguage);
@@ -1569,5 +1845,40 @@
   new MutationObserver(keepShortWordsWithNext).observe(document.body, { childList: true, characterData: true, subtree: true });
 })();
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const label = document.querySelector('.card-hover-label');
+  if (!label || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  let frame = 0;
+  let pointer = { x: 0, y: 0 };
+  const move = (event) => {
+    pointer = { x: event.clientX, y: event.clientY };
+    if (frame) return;
+    frame = requestAnimationFrame(() => {
+      const bounds = label.getBoundingClientRect();
+      let x = pointer.x + 14;
+      let y = pointer.y + 14;
+      if (x + bounds.width > innerWidth - 8) x = pointer.x - bounds.width - 14;
+      if (y + bounds.height > innerHeight - 8) y = pointer.y - bounds.height - 14;
+      label.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+      frame = 0;
+    });
+  };
+  document.querySelectorAll('.card').forEach((card) => {
+    card.addEventListener('pointerenter', (event) => {
+      const comingSoon = card.classList.contains('card--coming-soon');
+      const isEnglish = document.documentElement.lang === 'en';
+      label.textContent = comingSoon ? (isEnglish ? 'Coming soon' : 'Скоро') : (isEnglish ? 'More details' : 'Подробнее');
+      label.classList.toggle('is-coming-soon', comingSoon);
+      move(event);
+      label.classList.add('is-visible');
+    });
+    card.addEventListener('pointermove', move);
+    card.addEventListener('pointerleave', () => label.classList.remove('is-visible'));
+  });
+});
+</script>
+
 </body>
 </html>
