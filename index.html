@@ -1048,6 +1048,7 @@
     .project-meta__logo svg, .project-meta__logo img { width: 20px; height: 20px; }
     .project-meta__name { color: var(--color-text); }
     .project-meta__role, .project-meta__period, .project-meta__separator { color: var(--color-muted); }
+    .project-meta__separator { margin-left: -4px; }
     .card {
       border-radius: 8px; padding: 80px 60px 60px; gap: 20px;
       transition: transform var(--motion-duration-medium) var(--motion-ease-out), opacity var(--motion-duration-normal) var(--motion-ease-out);
@@ -1413,7 +1414,12 @@
         <div><span class="case-study__fact-label">Команда</span><p class="case-study__fact-value">Product Owner, аналитик, 2&nbsp;iOS-разработчика, 2&nbsp;Android-разработчика, 2&nbsp;backend-разработчика и&nbsp;2&nbsp;QA-инженера</p></div>
         <div><span class="case-study__fact-label">Результат</span><p class="case-study__result-number">0 → 17%</p><p class="case-study__result-description">17% новых подключений торгового эквайринга стали проходить через&nbsp;мобильное приложение в&nbsp;течение первого года после&nbsp;запуска</p></div>
       </div>
-      <figure class="case-study__alfa-cover"></figure>
+      <figure class="case-study__alfa-cover">
+        <video class="case-study__alfa-cover-video" autoplay muted loop playsinline preload="metadata" aria-label="Запись экрана заявки на торговый эквайринг">
+          <source src="assets/cases/alfa-bank/alfa-case-first-screen.m4v" type="video/x-m4v" />
+        </video>
+        <figcaption class="case-study__alfa-cover-caption">Лендинг в&nbsp;приложении</figcaption>
+      </figure>
       <section class="case-study__section">
         <h2>Заявка на&nbsp;подключение</h2>
         <div class="case-study__copy">
@@ -1584,9 +1590,33 @@
       border-radius: 8px;
       background: #f4f4f4;
     }
-    /* The earlier Alfa-specific rule has higher specificity than the shared card rule. */
-    .case-study--alfa .case-study__alfa-cover { border-radius: 8px; }
-    .case-study__alfa-cover-video,
+    /* The Alfa cover expands around the portrait recording instead of clipping it. */
+    .case-study--alfa .case-study__alfa-cover {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      aspect-ratio: auto;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 60px 60px;
+      border-radius: 8px;
+    }
+    .case-study--alfa .case-study__alfa-cover-video {
+      display: block;
+      width: min(44.8%, 512px);
+      max-width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+    .case-study__alfa-cover-caption {
+      width: min(512px, 100%);
+      margin: 0;
+      color: var(--color-muted);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.56;
+      text-align: center;
+    }
     .case-study__alfa-gallery-placeholder img { display: none !important; }
     .case-study__alfa-gallery-placeholder--application,
     .case-study__alfa-gallery-placeholder--equipment { justify-content: initial; }
@@ -1617,6 +1647,8 @@
       .case-study__alfa-cover,
       .case-study__cover,
       .case-study__alfa-gallery-placeholder { aspect-ratio: 1056 / 785; margin-top: 32px; border-radius: 8px; }
+      .case-study--alfa .case-study__alfa-cover { aspect-ratio: auto; gap: 12px; padding: 20px 16px 24px; }
+      .case-study--alfa .case-study__alfa-cover-video { width: min(57.6%, 440px); height: auto; }
       .case-study__status { width: 100%; }
       .case-study__gallery { grid-template-columns: 1fr; gap: 8px; }
       .case-study__gallery .case-study__placeholder { aspect-ratio: 1056 / 785; }
