@@ -1429,7 +1429,12 @@
           <p>The&nbsp;first step became short and&nbsp;clear: company director, account, payout method, and&nbsp;an&nbsp;email for&nbsp;communication. We&nbsp;can&nbsp;prefill most fields using the&nbsp;client’s&nbsp;main profile.</p>
         </div>
       </section>
-      <figure class="case-study__alfa-gallery-placeholder case-study__alfa-gallery-placeholder--application"></figure>
+      <figure class="case-study__alfa-gallery-placeholder case-study__alfa-gallery-placeholder--application">
+        <div class="case-study__alfa-application-screen">
+          <img src="../assets/cases/alfa-bank/alfa_case_01.png" alt="First step of the merchant acquiring application" />
+        </div>
+        <figcaption class="case-study__alfa-application-caption">The first step of the application is short and clear</figcaption>
+      </figure>
       <section class="case-study__section">
         <div class="case-study__copy">
           <h3 class="case-study__subheading">Equipment</h3>
@@ -1570,9 +1575,41 @@
       line-height: 1.56;
       text-align: center;
     }
-    .case-study__alfa-gallery-placeholder img { display: none !important; }
+    .case-study__alfa-gallery-placeholder:not(.case-study__alfa-gallery-placeholder--application) img { display: none !important; }
     .case-study__alfa-gallery-placeholder--application,
     .case-study__alfa-gallery-placeholder--equipment { justify-content: initial; }
+    .case-study__alfa-gallery-placeholder--application {
+      display: flex;
+      aspect-ratio: auto;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 60px 60px;
+      gap: 60px;
+    }
+    .case-study__alfa-application-screen {
+      width: min(33.6%, 295px);
+      aspect-ratio: 0.286;
+      overflow: hidden;
+      border-radius: 20px;
+      background: #fff;
+    }
+    .case-study__alfa-application-screen img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: left center;
+    }
+    .case-study__alfa-application-caption {
+      width: min(33.6%, 295px);
+      margin: 0;
+      color: var(--color-muted);
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 1.56;
+      text-align: center;
+    }
     .case-study__status {
       width: min(512px, 100%);
       margin: 32px auto 0;
@@ -1602,6 +1639,9 @@
       .case-study__alfa-gallery-placeholder { aspect-ratio: 1056 / 785; margin-top: 32px; border-radius: 8px; }
       .case-study--alfa .case-study__alfa-cover { aspect-ratio: auto; gap: 12px; padding: 20px 16px 24px; }
       .case-study--alfa .case-study__alfa-cover-video { width: min(57.6%, 440px); height: auto; }
+      .case-study__alfa-gallery-placeholder--application { aspect-ratio: auto; gap: 20px; padding: 20px 16px 24px; }
+      .case-study__alfa-application-screen { width: min(43.2%, 295px); }
+      .case-study__alfa-application-caption { width: min(43.2%, 295px); }
       .case-study__status { width: 100%; }
       .case-study__gallery { grid-template-columns: 1fr; gap: 8px; }
       .case-study__gallery .case-study__placeholder { aspect-ratio: 1056 / 785; }
