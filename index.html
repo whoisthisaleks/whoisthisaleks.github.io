@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Алексей — Product Designer</title>
+  <title>Alexey — Product Designer</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -781,7 +781,6 @@
       }
     }
 
-  <style>
     html { scroll-behavior: smooth; }
     .card[href] { cursor: pointer; }
     .card[href]:focus-visible,
@@ -918,6 +917,7 @@
       border-radius: 24px;
       background: var(--color-card-bg);
     }
+    .case-study__alfa-gallery-placeholder + .case-study__alfa-gallery-placeholder { margin-top: 8px; }
     .case-study__alfa-gallery-placeholder--application {
       display: flex;
       min-height: 0;
@@ -1189,7 +1189,7 @@
 
       <div class="hero__description">
         <div class="hero__line1">
-          <span class="hero__greeting">Привет, я&nbsp;Алексей.</span>
+          <span class="hero__greeting">Привет, я&nbsp;Лёша.</span>
         </div>
         <p class="hero__bio">
           15+ лет в дизайне — от визуальных систем и концептов до сложных цифровых продуктов. Развиваю торговый эквайринг в&nbsp;<a href="https://alfabank.ru/" target="_blank" rel="noopener">Альфа-Банке</a> и&nbsp;менторю дизайнеров в&nbsp;<a href="https://duosapiens.ru/" target="_blank" rel="noopener">DuoSapiens</a>. Работал над масштабным обновлением <a href="https://megaplan.ru/" target="_blank" rel="noopener">Мегаплана</a> и вёл множество проектов как дизайнер и арт-директор.
@@ -1248,7 +1248,7 @@
 <rect width="40" height="40" rx="20" fill="#5FCE6C"/>
 <path d="M12.8157 15.1642L10.3688 17.7994C10.1165 18.0711 9.99031 18.2069 10.0006 18.3677C10.0109 18.5284 10.1533 18.6471 10.4381 18.8844L11.7063 19.9413C12.1631 20.3219 12.3915 20.5122 12.6702 20.5685C12.9489 20.6247 13.2332 20.5377 13.8018 20.3639L27.2772 16.2441C27.314 16.2328 27.3539 16.247 27.3753 16.2791C27.4053 16.3242 27.3874 16.3855 27.3378 16.4073L14.2252 22.1716C13.8576 22.3332 13.6738 22.414 13.5314 22.5495C13.389 22.6851 13.2992 22.8646 13.1196 23.2237L11.4965 26.47C11.2536 26.9558 11.1321 27.1987 11.2419 27.3763C11.3517 27.5539 11.6233 27.5539 12.1665 27.5539H17.0142C17.4435 27.5539 17.6582 27.5539 17.8537 27.4784C18.0492 27.4028 18.2081 27.2584 18.5257 26.9696L31.5847 15.0978C31.8869 14.823 32.0381 14.6856 31.9918 14.5659C31.9455 14.4462 31.7413 14.4462 31.3328 14.4462H14.4623C13.9795 14.4462 13.7381 14.4462 13.5233 14.5398C13.3085 14.6335 13.1442 14.8104 12.8157 15.1642Z" fill="white" transform="translate(-1, -1)"/>
 </svg></div><span class="project-meta__name">Megaplan</span><span class="project-meta__role"><span class="project-meta__separator" aria-hidden="true">•</span> Senior Product Designer</span><span class="project-meta__period"><span class="project-meta__separator" aria-hidden="true">•</span> 2022 – 2024</span></div></div>
-      <a class="card card--coming-soon" href="#case-project-2" aria-label="Open case study: project-2">
+      <div class="card card--coming-soon">
 
         <div class="card__image-wrap">
           <img
@@ -1263,14 +1263,14 @@
             Работал над&nbsp;масштабным обновлением Мегаплана: пересобрал core UX&nbsp;в&nbsp;сторону гибкой Notion-like модели, повысил эффективность работы с&nbsp;задачами и&nbsp;заложил дизайн-систему
           </p>
         </div>
-      </a>
+      </div>
 
       <!-- Card 3: Foodzy / 2021 -->
       <div class="project-meta"><div class="project-meta__inner"><div class="card__logo project-meta__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <rect width="40" height="40" rx="20" fill="black"/>
 <path d="M23.3863 15.4849C23.7589 15.4849 24.1534 15.5068 24.5479 15.5726V12.2411C23.9562 12.0877 23.2548 12 22.5753 12C19.3096 12 17.3589 13.863 17.3589 16.8V17.0411H15.4521V20.4164H17.3589V28H21.5014V20.4164H24.5479V17.0411H21.5014V16.9534C21.5014 15.9452 22.0712 15.4849 23.3863 15.4849Z" fill="white"/>
 </svg></div><span class="project-meta__name">Foodzy</span><span class="project-meta__role"><span class="project-meta__separator" aria-hidden="true">•</span> Senior UI/UX Designer & Brand Designer</span><span class="project-meta__period"><span class="project-meta__separator" aria-hidden="true">•</span> 2021</span></div></div>
-      <a class="card card--coming-soon" href="#case-project-3" aria-label="Open case study: project-3">
+      <div class="card card--coming-soon">
 
         <div class="card__image-wrap">
           <img
@@ -1285,11 +1285,7 @@
             Разработал с&nbsp;нуля концепт приложения Foodzy — от&nbsp;брендинга до&nbsp;продуктовой концепции, UX и&nbsp;интерфейсов. Подготовил проект для&nbsp;презентации инвесторам и&nbsp;привлечения финансирования
           </p>
         </div>
-      </a>
-
-
-
-      
+      </div>
 
       <!-- Card 4: Megaplan / 2021 -->
       <div class="project-meta"><div class="project-meta__inner"><div class="card__logo project-meta__logo card__logo--plain">
@@ -1298,7 +1294,7 @@
               alt="storecloud"
             />
           </div><span class="project-meta__name">Storecloud</span><span class="project-meta__role"><span class="project-meta__separator" aria-hidden="true">•</span> Senior UI/UX Designer & Brand Designer</span><span class="project-meta__period"><span class="project-meta__separator" aria-hidden="true">•</span> 2021</span></div></div>
-      <a class="card card--coming-soon" href="#case-project-4" aria-label="Open case study: project-4">
+      <div class="card card--coming-soon">
 
         <div class="card__image-wrap">
           <img
@@ -1313,7 +1309,7 @@
             Спроектировал цифровую экосистему для&nbsp;сервиса доставки — от&nbsp;фирменного стиля до&nbsp;интерфейсов управления и&nbsp;приложения для&nbsp;курьеров, объединив всё в&nbsp;единый продукт
           </p>
         </div>
-      </a>
+      </div>
 
       <!-- Card 5: 2017 -->
       <div class="project-meta"><div class="project-meta__inner"><div class="card__logo project-meta__logo card__logo--plain"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1387,8 +1383,7 @@
           </div>
           <p class="shot-card__title">App&nbsp;для&nbsp;Postcash</p>
         </div>
-        
-        
+
       </div>
 
       <p class="projects__cta">Есть проект или&nbsp;идея? Обсудим в&nbsp;<a href="https://t.me/alekseimogi" target="_blank" rel="noopener">Telegram</a>.</p>
@@ -1400,61 +1395,72 @@
   </div>
 </div>
 
-
-  <main class="case-studies" aria-live="polite">
+<main class="case-studies" aria-live="polite">
     <a class="language-toggle case-study__back case-study__back--fixed" href="#projects" aria-label="Back to projects" title="Back to projects"><svg class="case-study__back-icon" width="7" height="10" viewBox="0 0 7 10" aria-hidden="true" focusable="false"><path d="M0 5L5 10L6.23926 8.76074L2.47852 5L6.23926 1.23926L5 0L0 5Z" fill="currentColor"/></svg></a>
         <article class="case-study case-study--alfa" id="case-alfa-bank" data-case-title="Alfa-Bank — Merchant Acquiring">
-<header class="case-study__hero"><h1 class="case-study__title">Торговый эквайринг<br>в&nbsp;мобильном Альфа-банке</h1></header>
+<header class="case-study__hero"><h1 class="case-study__title">Merchant acquiring<br>in&nbsp;the&nbsp;Alfa-Bank mobile app</h1></header>
       <div class="case-study__copy case-study__intro">
-        <p>С&nbsp;командой я&nbsp;спроектировал мобильный опыт торгового эквайринга для&nbsp;предпринимателей: от&nbsp;знакомства с&nbsp;продуктом и&nbsp;подачи заявки до&nbsp;управления торговыми точками, оборудованием, документами и&nbsp;операциями.</p>
-        <p>Раньше подключение и&nbsp;управление эквайрингом были доступны только в&nbsp;десктопной версии. Мы&nbsp;перенесли ключевые сценарии в&nbsp;мобильное приложение, переработали лендинг и&nbsp;заявку и&nbsp;полностью реализовали все&nbsp;разделы кабинета торгового эквайринга.</p>
+        <p>Together with the&nbsp;team, I&nbsp;designed a&nbsp;mobile merchant acquiring experience for&nbsp;entrepreneurs: from learning about the&nbsp;product and&nbsp;submitting an&nbsp;application to&nbsp;managing merchant locations, equipment, documents, and&nbsp;transactions.</p>
+        <p>Previously, merchant acquiring was&nbsp;available only in&nbsp;the&nbsp;desktop version. We&nbsp;moved key&nbsp;scenarios into the&nbsp;mobile app, redesigned the&nbsp;landing page and&nbsp;application, and&nbsp;built all&nbsp;sections of&nbsp;the&nbsp;merchant acquiring account.</p>
       </div>
       <div class="case-study__facts">
-        <div><span class="case-study__fact-label">Моя роль</span><p class="case-study__fact-value">Senior Product Designer</p></div>
-        <div><span class="case-study__fact-label">Команда</span><p class="case-study__fact-value">Product Owner, аналитик, 2&nbsp;iOS-разработчика, 2&nbsp;Android-разработчика, 2&nbsp;backend-разработчика и&nbsp;2&nbsp;QA-инженера</p></div>
-        <div><span class="case-study__fact-label">Результат</span><p class="case-study__result-number">0 → 17%</p><p class="case-study__result-description">17% новых подключений торгового эквайринга стали проходить через&nbsp;мобильное приложение в&nbsp;течение первого года после&nbsp;запуска</p></div>
+        <div><span class="case-study__fact-label">My role</span><p class="case-study__fact-value">Senior Product Designer</p></div>
+        <div><span class="case-study__fact-label">Team</span><p class="case-study__fact-value">Product Owner, analyst, 2&nbsp;iOS developers, 2&nbsp;Android developers, 2&nbsp;backend developers, and&nbsp;2&nbsp;QA engineers</p></div>
+        <div><span class="case-study__fact-label">Result</span><p class="case-study__result-number">0 → 17%</p><p class="case-study__result-description">Within the&nbsp;first year after launch, 17% of&nbsp;new merchant acquiring sign-ups came through the&nbsp;mobile app</p></div>
       </div>
       <figure class="case-study__alfa-cover">
-        <video class="case-study__alfa-cover-video" autoplay muted loop playsinline preload="metadata" aria-label="Запись экрана заявки на торговый эквайринг">
+        <video class="case-study__alfa-cover-video" autoplay muted loop playsinline preload="metadata" aria-label="Merchant acquiring application screen recording">
           <source src="assets/cases/alfa-bank/alfa-case-first-screen.m4v" type="video/x-m4v" />
         </video>
-        <figcaption class="case-study__alfa-cover-caption">Лендинг в&nbsp;приложении</figcaption>
+        <figcaption class="case-study__alfa-cover-caption">Landing page in the app</figcaption>
       </figure>
       <section class="case-study__section">
-        <h2>Заявка на&nbsp;подключение</h2>
+        <h2>Merchant acquiring application</h2>
         <div class="case-study__copy">
-          <p>Важной частью работы стала переработка заявки: нужно было разделить её&nbsp;на&nbsp;понятные этапы, снизить ощущение сложности, реорганизовать поля форм и&nbsp;переосмыслить структуру экранов.</p>
-          <p>Мы&nbsp;провели UX-исследование заявки, где&nbsp;проверяли, насколько понятен сценарий и&nbsp;достаточно ли&nbsp;информации, чтобы пройти заявку самостоятельно.</p>
-          <p>Это&nbsp;обозначило продуктовую задачу: заявка должна поддерживать самостоятельное заполнение, но&nbsp;не&nbsp;предполагать, что&nbsp;каждый пользователь уже&nbsp;знает, какой тариф или&nbsp;терминал ему&nbsp;нужен.</p>
+          <p>A&nbsp;key&nbsp;part of&nbsp;the&nbsp;work was&nbsp;reworking the&nbsp;application: breaking it&nbsp;into clear steps, reducing perceived complexity, reorganizing form fields, and&nbsp;rethinking the&nbsp;screen structure.</p>
+          <p>We&nbsp;conducted UX&nbsp;research on&nbsp;the&nbsp;application to&nbsp;understand how&nbsp;clear the&nbsp;flow was&nbsp;and&nbsp;whether it&nbsp;provided enough information for&nbsp;people to&nbsp;complete it&nbsp;on&nbsp;their own.</p>
+          <p>This revealed a&nbsp;product challenge: the&nbsp;application had&nbsp;to&nbsp;support independent completion without assuming every user already knew which tariff or&nbsp;terminal they needed.</p>
         </div>
       </section>
+      <figure class="case-study__alfa-gallery-placeholder case-study__alfa-gallery-placeholder--flow case-study__alfa-gallery-placeholder--old-flow">
+        <img src="assets/cases/alfa-bank/old_registration_flow.png" alt="Previous merchant acquiring application: tariff selection, main information, and merchant locations" loading="lazy">
+        <figcaption class="case-study__alfa-cover-caption">Previous application flow: first, users choose a tariff, then enter their business information, and finally select their merchant locations</figcaption>
+      </figure>
       <section class="case-study__section">
         <div class="case-study__copy">
-          <h3 class="case-study__subheading">Структура данных в&nbsp;анкете</h3>
-          <p>Исследование показало, что&nbsp;сложность заявки заключалась не&nbsp;только в&nbsp;количестве данных. Пользователю нужно было понять, какие сведения относятся к&nbsp;компании и&nbsp;торговой точке, выбрать оборудование и&nbsp;оценить тариф. Для&nbsp;новичка это&nbsp;ещё&nbsp;и&nbsp;решения, в&nbsp;которых не&nbsp;хватает опыта.</p>
-          <p>Я&nbsp;работал над&nbsp;структурой сценария и&nbsp;группировкой данных, чтобы пользователь мог&nbsp;проходить заявку последовательнее.</p>
-          <p>Первый шаг&nbsp;анкеты стал коротким и&nbsp;понятным: руководитель, счёт, способ зачисления и&nbsp;email для&nbsp;коммуникации. Большинство полей мы&nbsp;можем предзаполнить, зная данные клиента из&nbsp;основного профиля.</p>
+          <h3 class="case-study__subheading">Structuring the&nbsp;application data</h3>
+          <p>Research showed that the&nbsp;application was&nbsp;difficult not&nbsp;only because of&nbsp;the&nbsp;amount of&nbsp;data. Users needed to&nbsp;understand which details belonged to&nbsp;the&nbsp;company and&nbsp;the&nbsp;merchant location, choose equipment, and&nbsp;assess the&nbsp;tariff. For&nbsp;newcomers, that also meant making decisions without enough experience.</p>
+          <p>I&nbsp;worked on&nbsp;the&nbsp;flow structure and&nbsp;grouped the&nbsp;information so&nbsp;users could complete the&nbsp;application step by&nbsp;step.</p>
+          <p>The&nbsp;first step became short and&nbsp;clear: company director, account, payout method, and&nbsp;an&nbsp;email for&nbsp;communication. We&nbsp;can&nbsp;prefill most fields using the&nbsp;client’s&nbsp;main profile.</p>
         </div>
       </section>
       <figure class="case-study__alfa-gallery-placeholder case-study__alfa-gallery-placeholder--application">
         <div class="case-study__alfa-application-screen">
-          <img src="assets/cases/alfa-bank/alfa_case_01.png" alt="Первый шаг заявки на торговый эквайринг" />
+          <img src="assets/cases/alfa-bank/alfa_case_01.png" alt="First step of the merchant acquiring application" />
         </div>
-        <figcaption class="case-study__alfa-application-caption">Первый шаг анкеты стал коротким и понятным</figcaption>
+        <figcaption class="case-study__alfa-application-caption">The first step of the application is now short and clear, and it also collects information about the client’s business so we can offer the most suitable tariff</figcaption>
       </figure>
       <section class="case-study__section">
         <div class="case-study__copy">
-          <h3 class="case-study__subheading">Оборудование</h3>
-          <p>В&nbsp;ходе исследования участникам не&nbsp;хватало сведений о&nbsp;типах подключения, условиях использования устройств и&nbsp;подробностях о&nbsp;терминалах и&nbsp;приложениях.</p>
-          <p>В&nbsp;обновлённом сценарии оборудование представлено отдельным блоком в&nbsp;настройках торговой точки, с&nbsp;возможностью добавить несколько устройств и&nbsp;очень подробно изучить все&nbsp;характеристики.</p>
-          <p>Второй шаг&nbsp;анкеты получил три&nbsp;уровня: список торговых точек, информация о&nbsp;точке и&nbsp;экран выбора и&nbsp;настройки оборудования.</p>
+          <h3 class="case-study__subheading">Equipment</h3>
+          <p>During research, participants lacked information about connection types, device usage requirements, and&nbsp;details about terminals and&nbsp;apps.</p>
+          <p>In&nbsp;the&nbsp;updated flow, equipment appears in&nbsp;a&nbsp;separate block within merchant location settings. Users can&nbsp;add&nbsp;several devices and&nbsp;review their specifications in&nbsp;detail.</p>
+          <p>The&nbsp;second step has&nbsp;three levels: a&nbsp;list of&nbsp;merchant locations, location details, and&nbsp;a&nbsp;screen for&nbsp;choosing and&nbsp;setting up&nbsp;equipment.</p>
         </div>
       </section>
+      <figure class="case-study__alfa-gallery-placeholder case-study__alfa-gallery-placeholder--flow case-study__alfa-gallery-placeholder--equipment-flow-2">
+        <img src="assets/cases/alfa-bank/new_registartion_flow_2.png" alt="Updated application: merchant location list and merchant location details" loading="lazy">
+        <figcaption class="case-study__alfa-cover-caption">Merchant location list and&nbsp;details</figcaption>
+      </figure>
+      <figure class="case-study__alfa-gallery-placeholder case-study__alfa-gallery-placeholder--flow case-study__alfa-gallery-placeholder--equipment-flow-3">
+        <img src="assets/cases/alfa-bank/new_registration_flow_3.png" alt="Updated application: equipment selection and portable terminal setup" loading="lazy">
+        <figcaption class="case-study__alfa-cover-caption">Equipment selection and&nbsp;setup</figcaption>
+      </figure>
       <section class="case-study__section">
         <div class="case-study__copy">
-          <h3 class="case-study__subheading">Тариф</h3>
-          <p>Трудность выбора тарифа была одним из&nbsp;ключевых наблюдений исследования. Было принято решение не&nbsp;только показать все&nbsp;условия тарифа, но&nbsp;и&nbsp;дать возможность посчитать сумму ежемесячного платежа, исходя из&nbsp;данных клиента.</p>
-          <p>Так&nbsp;на&nbsp;этапе выбора тарифа появился калькулятор платежа, где&nbsp;можно подобрать тариф под&nbsp;конкретные показатели бизнеса и&nbsp;сравнить его&nbsp;с&nbsp;другими.</p>
+          <h3 class="case-study__subheading">Tariff</h3>
+          <p>Choosing a&nbsp;tariff was&nbsp;one&nbsp;of&nbsp;the&nbsp;key&nbsp;challenges identified in&nbsp;the&nbsp;research. The&nbsp;solution was&nbsp;to&nbsp;show all&nbsp;tariff terms and&nbsp;let&nbsp;clients estimate their monthly payment based on&nbsp;their own&nbsp;details.</p>
+          <p>A&nbsp;payment calculator was&nbsp;added to&nbsp;tariff selection, so&nbsp;clients can&nbsp;find a&nbsp;plan that fits their business and&nbsp;compare it&nbsp;with others.</p>
         </div>
       </section>
       <p class="case-study__status">case in&nbsp;progress..</p></article>
@@ -1474,49 +1480,9 @@
     <p class="case-study__status">case in&nbsp;progress..</p>
     </article>
   </main>
-  <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const cases = [...document.querySelectorAll('.case-study')];
-    const projectList = document.querySelector('.projects');
-    let homeScrollY = null;
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    document.querySelectorAll('.card[href^="#case-"]').forEach((card) => {
-      card.addEventListener('click', () => { homeScrollY = window.scrollY; });
-    });
-
-    function renderRoute() {
-      const active = cases.find((item) => `#${item.id}` === window.location.hash) || null;
-      cases.forEach((item) => {
-        const isActive = item === active;
-        item.classList.toggle('is-active', isActive);
-        item.setAttribute('aria-hidden', String(!isActive));
-      });
-      document.body.classList.toggle('case-open', Boolean(active));
-      cases.forEach((item) => {
-        const video = item.querySelector('.case-study__alfa-cover-video');
-        if (!video) return;
-        if (item === active) video.play().catch(() => {});
-        else video.pause();
-      });
-      if (active) {
-        document.title = `${active.dataset.caseTitle} | Алексей — Product Designer`;
-        window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
-      } else {
-        document.title = 'Алексей — Product Designer';
-        if (window.location.hash === '#projects' && projectList) {
-          const targetY = homeScrollY === null ? projectList.getBoundingClientRect().top + window.scrollY : homeScrollY;
-          window.scrollTo({ top: targetY, behavior: reducedMotion ? 'auto' : 'smooth' });
-        }
-      }
-    }
-    window.addEventListener('hashchange', renderRoute);
-    renderRoute();
-  });
-  </script>
-
 
   <style>
+
     @media (prefers-reduced-motion: reduce) {
       *,
       *::before,
@@ -1621,7 +1587,28 @@
       line-height: 1.56;
       text-align: center;
     }
-    .case-study__alfa-gallery-placeholder:not(.case-study__alfa-gallery-placeholder--application) img { display: none !important; }
+    .case-study__alfa-gallery-placeholder:not(.case-study__alfa-gallery-placeholder--application):not(.case-study__alfa-gallery-placeholder--flow) img { display: none !important; }
+    .case-study__alfa-gallery-placeholder--flow {
+      display: flex;
+      aspect-ratio: auto;
+      min-height: 0;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 80px clamp(20px, 5vw, 60px) 60px;
+      overflow: visible;
+    }
+    .case-study__alfa-gallery-placeholder--flow img {
+      display: block !important;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      object-fit: contain;
+    }
+    .case-study__alfa-gallery-placeholder--flow figcaption { width: 100%; max-width: 900px; }
+    .case-study__alfa-gallery-placeholder--equipment-flow-2 img,
+    .case-study__alfa-gallery-placeholder--equipment-flow-3 img { max-width: 660px; }
     .case-study__alfa-gallery-placeholder--application,
     .case-study__alfa-gallery-placeholder--equipment { justify-content: initial; }
     .case-study__alfa-gallery-placeholder--application {
@@ -1630,9 +1617,12 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 80px 60px 60px;
+      padding: 80px clamp(20px, 5vw, 60px) 60px;
       gap: 60px;
     }
+    .case-study--alfa .case-study__alfa-cover,
+    .case-study--alfa .case-study__alfa-gallery-placeholder--application,
+    .case-study--alfa .case-study__alfa-gallery-placeholder--flow { gap: 40px; }
     .case-study__alfa-application-screen {
       width: min(33.6%, 295px);
       aspect-ratio: 0.286;
@@ -1648,7 +1638,8 @@
       object-position: left center;
     }
     .case-study__alfa-application-caption {
-      width: min(33.6%, 295px);
+      width: min(900px, 100%);
+      max-width: 900px;
       margin: 0;
       color: var(--color-muted);
       font-size: 12px;
@@ -1683,11 +1674,12 @@
       .case-study__alfa-cover,
       .case-study__cover,
       .case-study__alfa-gallery-placeholder { aspect-ratio: 1056 / 785; margin-top: 32px; border-radius: 8px; }
-      .case-study--alfa .case-study__alfa-cover { aspect-ratio: auto; gap: 12px; padding: 20px 16px 24px; }
+      .case-study--alfa .case-study__alfa-cover { aspect-ratio: auto; gap: 40px; padding: 20px 16px 24px; }
       .case-study--alfa .case-study__alfa-cover-video { width: min(57.6%, 440px); height: auto; }
-      .case-study__alfa-gallery-placeholder--application { aspect-ratio: auto; gap: 20px; padding: 20px 16px 24px; }
+      .case-study__alfa-gallery-placeholder--application { aspect-ratio: auto; gap: 40px; padding: 20px 16px 24px; }
+      .case-study__alfa-gallery-placeholder--flow { aspect-ratio: auto; min-height: 0; gap: 40px; padding: 20px 16px 24px; overflow: visible; }
       .case-study__alfa-application-screen { width: min(43.2%, 295px); }
-      .case-study__alfa-application-caption { width: min(43.2%, 295px); }
+      .case-study__alfa-application-caption { width: min(900px, 100%); max-width: 900px; }
       .case-study__status { width: 100%; }
       .case-study__gallery { grid-template-columns: 1fr; gap: 8px; }
       .case-study__gallery .case-study__placeholder { aspect-ratio: 1056 / 785; }
@@ -1698,9 +1690,8 @@
   <script>
   document.querySelectorAll('.card__image-wrap img, .shot-card__image').forEach((image) => {
     const reveal = () => image.classList.add('is-loaded');
-    if (image.complete) {
-      requestAnimationFrame(reveal);
-    } else {
+    if (image.complete) requestAnimationFrame(reveal);
+    else {
       image.addEventListener('load', reveal, { once: true });
       image.addEventListener('error', reveal, { once: true });
     }
@@ -1730,9 +1721,9 @@
     const content = {
       ru: {
         button: 'ENG',
-        title: 'Алексей — Product Designer',
+        title: 'Лёша — Product Designer',
         lang: 'ru',
-        greeting: 'Привет, я&nbsp;Алексей.',
+        greeting: 'Привет, я&nbsp;Лёша.',
         projectsTitle: 'Проекты', hoverLabel: 'Подробнее',
         projectNames: ['Alfa-Bank', 'Megaplan', 'Foodzy', 'Storecloud', 'Duck&amp;Rabbit'],
         projectRoles: ['Senior Product Designer', 'Senior Product Designer', 'Senior UI/UX Designer &amp; Brand Designer', 'Senior UI/UX Designer &amp; Brand Designer', 'Art Director'],
@@ -1771,7 +1762,7 @@
         button: 'RUS',
         title: 'Alexey — Product Designer',
         lang: 'en',
-        greeting: 'Hi, I&rsquo;m Aleks.',
+        greeting: 'Hi, I&rsquo;m Aleksei.',
         projectsTitle: 'Projects', hoverLabel: 'More details',
         projectNames: ['Alfa-Bank', 'Megaplan', 'Foodzy', 'Storecloud', 'Duck&amp;Rabbit'],
         projectRoles: ['Senior Product Designer', 'Senior Product Designer', 'Senior UI/UX Designer &amp; Brand Designer', 'Senior UI/UX Designer &amp; Brand Designer', 'Art Director'],
@@ -1808,13 +1799,18 @@
       }
     };
 
-    const isEnglishPage = /\/en\/(?:index\.html)?$/.test(window.location.pathname);
-    let currentLanguage = isEnglishPage ? 'en' : 'ru';
+    const pagePath = window.location.pathname;
+    const isRussianPage = /\/ru\/(?:index\.html)?$/.test(pagePath);
+    let currentLanguage = isRussianPage ? 'ru' : 'en';
 
     const getLanguageUrl = (language) => {
       const isFile = window.location.protocol === 'file:';
-      if (language === 'en') return isFile ? 'en/index.html' : 'en/';
-      return isFile ? '../index.html' : '../';
+      const isLanguageFolder = /\/(?:en|ru)\/(?:index\.html)?$/.test(pagePath);
+      if (isFile) {
+        if (language === 'en') return isLanguageFolder ? '../index.html' : 'index.html';
+        return isLanguageFolder ? '../ru/index.html' : 'ru/index.html';
+      }
+      return language === 'en' ? '/' : '/ru/';
     };
 
     const applyLanguage = (language) => {
@@ -1900,6 +1896,48 @@
   </script>
 
 
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cases = [...document.querySelectorAll('.case-study')];
+    const projectList = document.querySelector('.projects');
+    const isEnglishPage = !/\/ru\/(?:index\.html)?$/.test(window.location.pathname);
+    const homeTitle = isEnglishPage ? 'Alexey — Product Designer' : 'Алексей — Product Designer';
+    let homeScrollY = null;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.querySelectorAll('.card[href^="#case-"]').forEach((card) => {
+      card.addEventListener('click', () => { homeScrollY = window.scrollY; });
+    });
+
+    function renderRoute() {
+      const active = cases.find((item) => `#${item.id}` === window.location.hash) || null;
+      cases.forEach((item) => {
+        const isActive = item === active;
+        item.classList.toggle('is-active', isActive);
+        item.setAttribute('aria-hidden', String(!isActive));
+      });
+      document.body.classList.toggle('case-open', Boolean(active));
+      cases.forEach((item) => {
+        const video = item.querySelector('.case-study__alfa-cover-video');
+        if (!video) return;
+        if (item === active) video.play().catch(() => {});
+        else video.pause();
+      });
+      if (active) {
+        document.title = `${active.dataset.caseTitle} | ${homeTitle}`;
+        window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+      } else {
+        document.title = homeTitle;
+        if (window.location.hash === '#projects' && projectList) {
+          const targetY = homeScrollY === null ? projectList.getBoundingClientRect().top + window.scrollY : homeScrollY;
+          window.scrollTo({ top: targetY, behavior: reducedMotion ? 'auto' : 'smooth' });
+        }
+      }
+    }
+    window.addEventListener('hashchange', renderRoute);
+    renderRoute();
+  });
+  </script>
 
 <script>
 (() => {
