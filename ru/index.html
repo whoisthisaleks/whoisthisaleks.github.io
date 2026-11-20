@@ -1492,7 +1492,20 @@
     const cases = [...document.querySelectorAll('.case-study')];
     const projectList = document.querySelector('.projects');
     let homeScrollY = null;
+    let languageScrollY = null;
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    try {
+      const savedLanguageScroll = JSON.parse(sessionStorage.getItem('portfolio-language-scroll') || 'null');
+      if (savedLanguageScroll?.pathname === window.location.pathname && Number.isFinite(savedLanguageScroll.scrollY)) {
+        languageScrollY = savedLanguageScroll.scrollY;
+        sessionStorage.removeItem('portfolio-language-scroll');
+        window.history.scrollRestoration = 'manual';
+        window.addEventListener('load', () => {
+          requestAnimationFrame(() => window.scrollTo({ top: languageScrollY, behavior: 'auto' }));
+        }, { once: true });
+      }
+    } catch (_) {}
 
     document.querySelectorAll('.card[href^="#case-"]').forEach((card) => {
       card.addEventListener('click', () => { homeScrollY = window.scrollY; });
@@ -1514,10 +1527,10 @@
       });
       if (active) {
         document.title = `${active.dataset.caseTitle} | Алексей — Product Designer`;
-        window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+        if (languageScrollY === null) window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
       } else {
         document.title = 'Алексей — Product Designer';
-        if (window.location.hash === '#projects' && projectList) {
+        if (languageScrollY === null && window.location.hash === '#projects' && projectList) {
           const targetY = homeScrollY === null ? projectList.getBoundingClientRect().top + window.scrollY : homeScrollY;
           window.scrollTo({ top: targetY, behavior: reducedMotion ? 'auto' : 'smooth' });
         }
@@ -1889,7 +1902,13 @@
     };
 
     toggle.addEventListener('click', () => {
-      window.location.href = `${getLanguageUrl(currentLanguage === 'ru' ? 'en' : 'ru')}${window.location.hash}`;
+      const target = new URL(getLanguageUrl(currentLanguage === 'ru' ? 'en' : 'ru'), window.location.href);
+      const currentHash = window.location.hash;
+      target.hash = !document.body.classList.contains('case-open') && currentHash === '#projects' ? '' : currentHash;
+      try {
+        sessionStorage.setItem('portfolio-language-scroll', JSON.stringify({ pathname: target.pathname, scrollY: window.scrollY }));
+      } catch (_) {}
+      window.location.href = target.href;
     });
 
     applyLanguage(currentLanguage);
